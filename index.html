@@ -1,27 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<title>TOEIC 550 Digital Learning</title>
-<link rel="stylesheet" href="style.css">
+<title>TOEIC 550 數位教學網站</title>
+
+<style>
+/* ===== 全站基本設定 ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+/* ===== 頁首 ===== */
+header {
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* ===== 導覽選單 ===== */
+nav {
+  background-color: #00509e;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  background-color: #003f7f;
+}
+/* ===== 內容框架 ===== */
+.content {
+  width: 100%;
+  height: calc(100vh - 160px);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: white;
+}
+</style>
 </head>
+
 <body>
 
+<!-- ===== 標題 ===== -->
 <header>
-  <h1>TOEIC 550 數位學習網站</h1>
-  <nav>
-    <ul>
-      <li><a href="test1.html" target="contentFrame">字彙測驗</a></li>
-      <li><a href="test2.html" target="contentFrame">文法測驗</a></li>
-      <li><a href="test3.html" target="contentFrame">閱讀測驗</a></li>
-      <li><a href="about.html" target="contentFrame">製作團隊</a></li>
-    </ul>
-  </nav>
+  <h1>TOEIC 550 數位教學網站</h1>
+  <p>Vocabulary ・ Grammar ・ Reading</p>
 </header>
 
-<section class="content">
-  <iframe name="contentFrame" src="" frameborder="0"></iframe>
-</section>
+<!-- ===== 上方選單 ===== -->
+<nav>
+  <ul>
+    <li><a href="test1.html" target="mainFrame">字彙測驗</a></li>
+    <li><a href="test2.html" target="mainFrame">文法測驗</a></li>
+    <li><a href="test3.html" target="mainFrame">閱讀測驗</a></li>
+    <li><a href="about.html" target="mainFrame">製作團隊</a></li>
+  </ul>
+</nav>
+
+<!-- ===== 下方內容顯示區 ===== -->
+<div class="content">
+  <iframe name="mainFrame" src=""></iframe>
+</div>
 
 </body>
 </html>

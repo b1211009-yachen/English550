@@ -1,213 +1,79 @@
+職場詞彙
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <title>職場字彙測驗｜TOEIC 550</title>
     <style>
-        body {
-            font-family: "Noto Sans TC", sans-serif;
-            background: #f7f5f2;
-            color: #444;
-            padding: 20px;
-        }
-        .container {
-            max-width: 850px;
-            margin: auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            color: #6b6b6b;
-        }
-        .question {
-            margin-bottom: 25px;
-            padding: 15px;
-            background: #fafafa;
-            border-radius: 10px;
-            border-left: 5px solid #c8c2bd;
-        }
-        .option {
-            margin: 6px 0;
-        }
-        .answer-block {
-            margin-top: 8px;
-            padding: 10px;
-            background: #f0edea;
-            border-radius: 8px;
-            display: none;
-        }
-        .correct-text {
-            color: #3c7a3c;
-            font-weight: bold;
-        }
-        button {
-            display: block;
-            margin: auto;
-            padding: 12px 24px;
-            border: none;
-            background: #c4b7a6;
-            color: white;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #b5a492;
-        }
+        body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; padding: 20px; line-height: 1.6; }
+        .container { max-width: 850px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #6b6b6b; }
+        .question { margin-bottom: 25px; padding: 15px; background: #fafafa; border-radius: 10px; border-left: 5px solid #c8c2bd; }
+        .option { margin: 8px 0; display: block; cursor: pointer; }
+        .answer-block { margin-top: 12px; padding: 15px; background: #f0edea; border-radius: 8px; display: none; border: 1px dashed #c4b7a6; }
+        .correct-text { color: #3c7a3c; font-weight: bold; font-size: 1.1em; }
+        button { display: block; margin: 30px auto; padding: 12px 40px; border: none; background: #c4b7a6; color: white; border-radius: 8px; font-size: 18px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #b5a492; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>TOEIC 550 職場字彙測驗（10 題）</h2>
-    <p>請選出正確答案，按下「送出答案」後會顯示中文解釋。</p>
+    <h2>TOEIC 550 職場字彙測驗</h2>
+    <p style="text-align:center">請選出最適合填入空格的單字。</p>
 
-    <form id="quizForm">
-
-        <!-- 題目模板會由 JS 生成 -->
-    </form>
-
-    <br>
+    <form id="quizForm"></form>
     <button onclick="checkAnswers()">送出答案</button>
 </div>
 
 <script>
 const questions = [
-    {
-        q: "1. The manager scheduled a meeting for tomorrow morning.",
-        options: [
-            { word: "schedule", zh: "安排、排定（行程）" },
-            { word: "deliver", zh: "遞送" },
-            { word: "clean", zh: "清潔" },
-            { word: "cancel", zh: "取消" }
-        ],
-        answer: "schedule"
-    },
-    {
-        q: "2. Please submit your report before 5 p.m.",
-        options: [
-            { word: "submit", zh: "提交、繳交" },
-            { word: "print", zh: "列印" },
-            { word: "call", zh: "打電話" },
-            { word: "fix", zh: "修理" }
-        ],
-        answer: "submit"
-    },
-    {
-        q: "3. All employees must wear their ID badges.",
-        options: [
-            { word: "wear", zh: "配戴、穿戴" },
-            { word: "move", zh: "移動" },
-            { word: "open", zh: "打開" },
-            { word: "type", zh: "打字" }
-        ],
-        answer: "wear"
-    },
-    {
-        q: "4. The new assistant will answer phone calls.",
-        options: [
-            { word: "assistant", zh: "助理" },
-            { word: "folder", zh: "資料夾" },
-            { word: "contract", zh: "合約" },
-            { word: "printer", zh: "印表機" }
-        ],
-        answer: "assistant"
-    },
-    {
-        q: "5. Please review the document carefully.",
-        options: [
-            { word: "review", zh: "檢查、審閱" },
-            { word: "erase", zh: "擦掉" },
-            { word: "arrive", zh: "抵達" },
-            { word: "translate", zh: "翻譯" }
-        ],
-        answer: "review"
-    },
-    {
-        q: "6. The office will relocate to a new building next month.",
-        options: [
-            { word: "relocate", zh: "搬遷" },
-            { word: "copy", zh: "影印" },
-            { word: "purchase", zh: "購買" },
-            { word: "arrange", zh: "安排" }
-        ],
-        answer: "relocate"
-    },
-    {
-        q: "7. Employees must follow the company policy.",
-        options: [
-            { word: "policy", zh: "政策、規定" },
-            { word: "keyboard", zh: "鍵盤" },
-            { word: "budget", zh: "預算" },
-            { word: "address", zh: "地址" }
-        ],
-        answer: "policy"
-    },
-    {
-        q: "8. The staff prepared the conference room.",
-        options: [
-            { word: "conference", zh: "會議" },
-            { word: "envelope", zh: "信封" },
-            { word: "computer", zh: "電腦" },
-            { word: "supervisor", zh: "主管" }
-        ],
-        answer: "conference"
-    },
-    {
-        q: "9. We need to update the employee database.",
-        options: [
-            { word: "update", zh: "更新" },
-            { word: "deliver", zh: "遞送" },
-            { word: "borrow", zh: "借用" },
-            { word: "remind", zh: "提醒" }
-        ],
-        answer: "update"
-    },
-    {
-        q: "10. Please attach the file to the email.",
-        options: [
-            { word: "attach", zh: "附件、附加" },
-            { word: "replace", zh: "替換" },
-            { word: "store", zh: "儲存" },
-            { word: "approve", zh: "核准" }
-        ],
-        answer: "attach"
-    }
+    { q: "The manager ______ a meeting for tomorrow morning.", answer: "schedule", options: [
+        { word: "schedule", zh: "安排、排定（行程）" }, { word: "deliver", zh: "遞送" }, { word: "clean", zh: "清潔" }, { word: "cancel", zh: "取消" }
+    ]},
+    { q: "Please ______ your report before 5 p.m.", answer: "submit", options: [
+        { word: "submit", zh: "提交、繳交" }, { word: "print", zh: "列印" }, { word: "call", zh: "打電話" }, { word: "fix", zh: "修理" }
+    ]},
+    { q: "All employees must ______ their ID badges.", answer: "wear", options: [
+        { word: "wear", zh: "配戴、穿戴" }, { word: "move", zh: "移動" }, { word: "open", zh: "打開" }, { word: "type", zh: "打字" }
+    ]},
+    { q: "The new ______ will answer phone calls.", answer: "assistant", options: [
+        { word: "assistant", zh: "助理" }, { word: "folder", zh: "資料夾" }, { word: "contract", zh: "合約" }, { word: "printer", zh: "印表機" }
+    ]},
+    { q: "Please ______ the document carefully.", answer: "review", options: [
+        { word: "review", zh: "檢查、審閱" }, { word: "erase", zh: "擦掉" }, { word: "arrive", zh: "抵達" }, { word: "translate", zh: "翻譯" }
+    ]},
+    { q: "The office will ______ to a new building next month.", answer: "relocate", options: [
+        { word: "relocate", zh: "搬遷" }, { word: "copy", zh: "影印" }, { word: "purchase", zh: "購買" }, { word: "arrange", zh: "安排" }
+    ]},
+    { q: "Employees must follow the company ______.", answer: "policy", options: [
+        { word: "policy", zh: "政策、規定" }, { word: "keyboard", zh: "鍵盤" }, { word: "budget", zh: "預算" }, { word: "address", zh: "地址" }
+    ]},
+    { q: "The staff prepared the ______ room.", answer: "conference", options: [
+        { word: "conference", zh: "會議" }, { word: "envelope", zh: "信封" }, { word: "computer", zh: "電腦" }, { word: "supervisor", zh: "主管" }
+    ]},
+    { q: "We need to ______ the employee database.", answer: "update", options: [
+        { word: "update", zh: "更新" }, { word: "deliver", zh: "遞送" }, { word: "borrow", zh: "借用" }, { word: "remind", zh: "提醒" }
+    ]},
+    { q: "Please ______ the file to the email.", answer: "attach", options: [
+        { word: "attach", zh: "附件、附加" }, { word: "replace", zh: "替換" }, { word: "store", zh: "儲存" }, { word: "approve", zh: "核准" }
+    ]}
 ];
 
 const form = document.getElementById("quizForm");
 
-// 動態生成題目
 questions.forEach((q, idx) => {
-    let html = `
-        <div class="question">
-            <p>${q.q}</p>
-    `;
-
+    let html = `<div class="question"><p><b>Q${idx+1}.</b> ${q.q}</p>`;
     q.options.forEach(opt => {
-        html += `
-            <label class="option">
-                <input type="radio" name="q${idx}" value="${opt.word}">
-                ${opt.word}
-            </label><br>
-        `;
+        html += `<label class="option"><input type="radio" name="q${idx}" value="${opt.word}"> ${opt.word}</label>`;
     });
-
-    html += `
-        <div class="answer-block" id="ans${idx}">
-            <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
-            <p><strong>選項中文解釋：</strong></p>
-    `;
-
+    html += `<div class="answer-block" id="ans${idx}">
+                <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
+                <p><strong>單字解析：</strong></p>`;
     q.options.forEach(opt => {
-        html += `<p>• <b>${opt.word}</b>：${opt.zh}</p>`;
+        html += `<p style="margin:2px 0">• <b>${opt.word}</b>：${opt.zh}</p>`;
     });
-
     html += `</div></div>`;
-
     form.innerHTML += html;
 });
 
@@ -215,13 +81,13 @@ function checkAnswers() {
     questions.forEach((q, idx) => {
         document.getElementById("ans" + idx).style.display = "block";
     });
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 }
 </script>
-
 </body>
 </html>
-2、旅遊與交通
 
+旅遊單字
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -232,7 +98,7 @@ function checkAnswers() {
         .container { max-width: 850px; margin:auto; background: #fff; padding:25px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1);}
         h2 { text-align:center; color:#6b6b6b; }
         .question { margin-bottom:25px; padding:15px; background:#fafafa; border-radius:10px; border-left:5px solid #c8c2bd;}
-        .option { margin:6px 0; }
+        .option { margin:8px 0; display: block; cursor: pointer;}
         .answer-block { margin-top:8px; padding:10px; background:#f0edea; border-radius:8px; display:none;}
         .correct-text { color:#3c7a3c; font-weight:bold;}
         button { display:block; margin:auto; padding:12px 24px; border:none; background:#c4b7a6; color:white; border-radius:8px; font-size:16px; cursor:pointer;}
@@ -241,7 +107,7 @@ function checkAnswers() {
 </head>
 <body>
 <div class="container">
-    <h2>TOEIC 550 旅遊與交通字彙測驗（10 題）</h2>
+    <h2>TOEIC 550 旅遊與交通字彙測驗</h2>
     <p>請選出正確答案，按下「送出答案」後會顯示中文解釋與正確答案。</p>
     <form id="quizForm"></form>
     <br>
@@ -250,51 +116,39 @@ function checkAnswers() {
 
 <script>
 const questions = [
-    { q:"1. Please check your ______ at the counter before departure.",
-      options:[{word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}, {word:"insurance", zh:"旅遊保險"}],
-      answer:"luggage" },
-    { q:"2. You need a ______ to enter another country.",
-      options:[{word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}, {word:"schedule", zh:"時刻表"}, {word:"reservation", zh:"訂房/訂位"}],
-      answer:"passport" },
-    { q:"3. The ______ shows the flight departure and arrival times.",
-      options:[{word:"schedule", zh:"時刻表"}, {word:"boarding pass", zh:"登機證"}, {word:"destination", zh:"目的地"}, {word:"reservation", zh:"訂房/訂位"}],
-      answer:"schedule" },
-    { q:"4. The hotel staff confirmed my ______ for two nights.",
-      options:[{word:"reservation", zh:"訂房/訂位"}, {word:"luggage", zh:"行李"}, {word:"ticket", zh:"機票"}, {word:"passport", zh:"護照"}],
-      answer:"reservation" },
-    { q:"5. Don’t forget your ______ when boarding the plane.",
-      options:[{word:"boarding pass", zh:"登機證"}, {word:"destination", zh:"目的地"}, {word:"insurance", zh:"旅遊保險"}, {word:"flight", zh:"班機"}],
-      answer:"boarding pass" },
-    { q:"6. The plane leaves from gate number 12 at the ______.",
-      options:[{word:"boarding gate", zh:"登機口"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}],
-      answer:"boarding gate" },
-    { q:"7. My ______ covers medical emergencies while traveling.",
-      options:[{word:"insurance", zh:"旅遊保險"}, {word:"schedule", zh:"時刻表"}, {word:"flight", zh:"班機"}, {word:"reservation", zh:"訂房/訂位"}],
-      answer:"insurance" },
-    { q:"8. The taxi driver asked about my ______.",
-      options:[{word:"destination", zh:"目的地"}, {word:"ticket", zh:"機票"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}],
-      answer:"destination" },
-    { q:"9. The hotel provides a complimentary ______ for guests.",
-      options:[{word:"shuttle bus", zh:"接駁車"}, {word:"boarding pass", zh:"登機證"}, {word:"reservation", zh:"訂房/訂位"}, {word:"schedule", zh:"時刻表"}],
-      answer:"shuttle bus" },
-    { q:"10. You should check the ______ to avoid missing your train.",
-      options:[{word:"timetable", zh:"列車時刻表"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}],
-      answer:"timetable" }
+    { q:"Please check your ______ at the counter before departure.", answer:"luggage", 
+      options:[{word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}, {word:"insurance", zh:"旅遊保險"}]},
+    { q:"You need a ______ to enter another country.", answer:"passport",
+      options:[{word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}, {word:"schedule", zh:"時刻表"}, {word:"reservation", zh:"訂房/訂位"}]},
+    { q:"The ______ shows the flight departure and arrival times.", answer:"schedule",
+      options:[{word:"schedule", zh:"時刻表"}, {word:"boarding pass", zh:"登機證"}, {word:"destination", zh:"目的地"}, {word:"reservation", zh:"訂房/訂位"}]},
+    { q:"The hotel staff confirmed my ______ for two nights.", answer:"reservation",
+      options:[{word:"reservation", zh:"訂房/訂位"}, {word:"luggage", zh:"行李"}, {word:"ticket", zh:"機票"}, {word:"passport", zh:"護照"}]},
+    { q:"Don’t forget your ______ when boarding the plane.", answer:"boarding pass",
+      options:[{word:"boarding pass", zh:"登機證"}, {word:"destination", zh:"目的地"}, {word:"insurance", zh:"旅遊保險"}, {word:"flight", zh:"班機"}]},
+    { q:"The plane leaves from gate number 12 at the ______.", answer:"boarding gate",
+      options:[{word:"boarding gate", zh:"登機口"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}]},
+    { q:"My ______ covers medical emergencies while traveling.", answer:"insurance",
+      options:[{word:"insurance", zh:"旅遊保險"}, {word:"schedule", zh:"時刻表"}, {word:"flight", zh:"班機"}, {word:"reservation", zh:"訂房/訂位"}]},
+    { q:"The taxi driver asked about my ______.", answer:"destination",
+      options:[{word:"destination", zh:"目的地"}, {word:"ticket", zh:"機票"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}]},
+    { q:"The hotel provides a complimentary ______ for guests.", answer:"shuttle bus",
+      options:[{word:"shuttle bus", zh:"接駁車"}, {word:"boarding pass", zh:"登機證"}, {word:"reservation", zh:"訂房/訂位"}, {word:"schedule", zh:"時刻表"}]},
+    { q:"You should check the ______ to avoid missing your train.", answer:"timetable",
+      options:[{word:"timetable", zh:"列車時刻表"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}]}
 ];
 
 const form = document.getElementById("quizForm");
 
 questions.forEach((q, idx)=>{
-    let html = `<div class="question">
-        <p>${q.q}</p>`;
+    // 這裡自動處理題號與顯示
+    let html = `<div class="question"><p><b>${idx + 1}.</b> ${q.q}</p>`;
     q.options.forEach(opt=>{
-        html += `<label class="option">
-            <input type="radio" name="q${idx}" value="${opt.word}"> ${opt.word}
-        </label>`;
+        html += `<label class="option"><input type="radio" name="q${idx}" value="${opt.word}"> ${opt.word}</label>`;
     });
     html += `<div class="answer-block" id="ans${idx}">
-        <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
-        <p><strong>選項中文解釋：</strong></p>`;
+                <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
+                <p><strong>選項中文解釋：</strong></p>`;
     q.options.forEach(opt=>{
         html += `<p>• <b>${opt.word}</b>：${opt.zh}</p>`;
     });
@@ -311,28 +165,27 @@ function checkAnswers(){
 </body>
 </html>
 
-3、銷售與行銷
-
+銷售與行銷
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
 <title>銷售與行銷字彙測驗｜TOEIC 550</title>
 <style>
-body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; padding: 20px;}
-.container { max-width: 850px; margin:auto; background: #fff; padding:25px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1);}
-h2 { text-align:center; color:#6b6b6b; }
-.question { margin-bottom:25px; padding:15px; background:#fafafa; border-radius:10px; border-left:5px solid #c8c2bd;}
-.option { margin:6px 0; }
-.answer-block { margin-top:8px; padding:10px; background:#f0edea; border-radius:8px; display:none;}
-.correct-text { color:#3c7a3c; font-weight:bold;}
-button { display:block; margin:auto; padding:12px 24px; border:none; background:#c4b7a6; color:white; border-radius:8px; font-size:16px; cursor:pointer;}
-button:hover { background:#b5a492; }
+    body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; padding: 20px;}
+    .container { max-width: 850px; margin:auto; background: #fff; padding:25px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+    h2 { text-align:center; color:#6b6b6b; }
+    .question { margin-bottom:25px; padding:15px; background:#fafafa; border-radius:10px; border-left:5px solid #c8c2bd;}
+    .option { margin:8px 0; display: block; cursor: pointer;}
+    .answer-block { margin-top:8px; padding:10px; background:#f0edea; border-radius:8px; display:none;}
+    .correct-text { color:#3c7a3c; font-weight:bold;}
+    button { display:block; margin:auto; padding:12px 24px; border:none; background:#c4b7a6; color:white; border-radius:8px; font-size:16px; cursor:pointer;}
+    button:hover { background:#b5a492; }
 </style>
 </head>
 <body>
 <div class="container">
-<h2>TOEIC 550 銷售與行銷字彙測驗（10 題）</h2>
+<h2>TOEIC 550 銷售與行銷字彙測驗</h2>
 <p>請選出正確答案，按下「送出答案」後會顯示中文解釋與正確答案。</p>
 <form id="quizForm"></form>
 <br>
@@ -341,239 +194,53 @@ button:hover { background:#b5a492; }
 
 <script>
 const questions = [
-{ q:"1. The company prepared a detailed ______ for the new product launch.",
-  options:[{word:"presentation", zh:"產品介紹"}, {word:"catalog", zh:"產品目錄"}, {word:"brochure", zh:"小冊子"}, {word:"spec sheet", zh:"產品規格表"}],
-  answer:"presentation" },
-{ q:"2. To attract more customers, we launched a ______ this weekend.",
-  options:[{word:"promotion", zh:"促銷活動"}, {word:"limited offer", zh:"限時優惠"}, {word:"bundle", zh:"組合優惠"}, {word:"discount", zh:"折扣"}],
-  answer:"promotion" },
-{ q:"3. Check the ______ to see which competitor offers lower prices.",
-  options:[{word:"price tag", zh:"價格標籤"}, {word:"cost analysis", zh:"成本分析"}, {word:"invoice", zh:"發票"}, {word:"quote", zh:"報價單"}],
-  answer:"cost analysis" },
-{ q:"4. The marketing team wrote a catchy ______ for the campaign.",
-  options:[{word:"slogan", zh:"廣告標語"}, {word:"copy", zh:"廣告文案"}, {word:"headline", zh:"標題"}, {word:"caption", zh:"說明文字"}],
-  answer:"slogan" },
-{ q:"5. Customers are encouraged to join the ______ for rewards.",
-  options:[{word:"loyalty program", zh:"會員獎勵計畫"}, {word:"campaign", zh:"行銷活動"}, {word:"promotion", zh:"促銷活動"}, {word:"referral program", zh:"推薦計畫"}],
-  answer:"loyalty program" },
-{ q:"6. The manager created a detailed ______ of all product features.",
-  options:[{word:"catalog", zh:"產品目錄"}, {word:"spec sheet", zh:"產品規格表"}, {word:"brochure", zh:"小冊子"}, {word:"presentation", zh:"產品介紹"}],
-  answer:"catalog" },
-{ q:"7. We ran an online ______ to attract social media users.",
-  options:[{word:"campaign", zh:"行銷活動"}, {word:"advertisement", zh:"廣告"}, {word:"promotion", zh:"促銷活動"}, {word:"branding", zh:"品牌行銷"}],
-  answer:"campaign" },
-{ q:"8. The store offers a special ______ if you buy two products together.",
-  options:[{word:"bundle", zh:"組合優惠"}, {word:"limited offer", zh:"限時優惠"}, {word:"discount", zh:"折扣"}, {word:"promotion", zh:"促銷活動"}],
-  answer:"bundle" },
-{ q:"9. Check customer ______ to improve our product design.",
-  options:[{word:"feedback", zh:"顧客回饋"}, {word:"survey", zh:"問卷調查"}, {word:"rating", zh:"評分"}, {word:"review", zh:"評論"}],
-  answer:"feedback" },
-{ q:"10. The advertisement was posted on various ______ channels.",
-  options:[{word:"media", zh:"媒體"}, {word:"platform", zh:"平台"}, {word:"newsletter", zh:"電子報"}, {word:"website", zh:"網站"}],
-  answer:"media" }
+{ q:"The company prepared a detailed ______ for the new product launch.", answer:"presentation",
+  options:[{word:"presentation", zh:"產品介紹"}, {word:"catalog", zh:"產品目錄"}, {word:"brochure", zh:"小冊子"}, {word:"spec sheet", zh:"產品規格表"}]},
+{ q:"To attract more customers, we launched a ______ this weekend.", answer:"promotion",
+  options:[{word:"promotion", zh:"促銷活動"}, {word:"limited offer", zh:"限時優惠"}, {word:"bundle", zh:"組合優惠"}, {word:"discount", zh:"折扣"}]},
+{ q:"Check the ______ to see which competitor offers lower prices.", answer:"cost analysis",
+  options:[{word:"price tag", zh:"價格標籤"}, {word:"cost analysis", zh:"成本分析"}, {word:"invoice", zh:"發票"}, {word:"quote", zh:"報價單"}]},
+{ q:"The marketing team wrote a catchy ______ for the campaign.", answer:"slogan",
+  options:[{word:"slogan", zh:"廣告標語"}, {word:"copy", zh:"廣告文案"}, {word:"headline", zh:"標題"}, {word:"caption", zh:"說明文字"}]},
+{ q:"Customers are encouraged to join the ______ for rewards.", answer:"loyalty program",
+  options:[{word:"loyalty program", zh:"會員獎勵計畫"}, {word:"campaign", zh:"行銷活動"}, {word:"promotion", zh:"促銷活動"}, {word:"referral program", zh:"推薦計畫"}]},
+{ q:"The manager created a detailed ______ of all product features.", answer:"catalog",
+  options:[{word:"catalog", zh:"產品目錄"}, {word:"spec sheet", zh:"產品規格表"}, {word:"brochure", zh:"小冊子"}, {word:"presentation", zh:"產品介紹"}]},
+{ q:"We ran an online ______ to attract social media users.", answer:"campaign",
+  options:[{word:"campaign", zh:"行銷活動"}, {word:"advertisement", zh:"廣告"}, {word:"promotion", zh:"促銷活動"}, {word:"branding", zh:"品牌行銷"}]},
+{ q:"The store offers a special ______ if you buy two products together.", answer:"bundle",
+  options:[{word:"bundle", zh:"組合優惠"}, {word:"limited offer", zh:"限時優惠"}, {word:"discount", zh:"折扣"}, {word:"promotion", zh:"促銷活動"}]},
+{ q:"Check customer ______ to improve our product design.", answer:"feedback",
+  options:[{word:"feedback", zh:"顧客回饋"}, {word:"survey", zh:"問卷調查"}, {word:"rating", zh:"評分"}, {word:"review", zh:"評論"}]},
+{ q:"The advertisement was posted on various ______ channels.", answer:"media",
+  options:[{word:"media", zh:"媒體"}, {word:"platform", zh:"平台"}, {word:"newsletter", zh:"電子報"}, {word:"website", zh:"網站"}]}
 ];
 
 const form = document.getElementById("quizForm");
+
 questions.forEach((q, idx)=>{
-    let html = `<div class="question"><p>${q.q}</p>`;
+    // 動態顯示題號
+    let html = `<div class="question"><p><b>${idx + 1}.</b> ${q.q}</p>`;
     q.options.forEach(opt=>{
         html += `<label class="option"><input type="radio" name="q${idx}" value="${opt.word}"> ${opt.word}</label>`;
     });
     html += `<div class="answer-block" id="ans${idx}">
-        <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
-        <p><strong>選項中文解釋：</strong></p>`;
+                <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
+                <p><strong>選項中文解釋：</strong></p>`;
     q.options.forEach(opt=>{
-        html += `<p>• <b>${opt.word}</b>：${opt.zh}</p>`;
+        html += `<p style="margin:2px 0">• <b>${opt.word}</b>：${opt.zh}</p>`;
     });
     html += `</div></div>`;
     form.innerHTML += html;
 });
 
-function checkAnswers(){ questions.forEach((q, idx)=>{ document.getElementById("ans"+idx).style.display="block"; }); }
-</script>
-</body>
-</html>
-
-
-50個多益550必背單字
-
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TOEIC 550 必背單字</title>
-<style>
-    body {
-        font-family: "Noto Sans TC", sans-serif;
-        background: #fafafa;
-        margin: 0;
-        padding: 0;
-        color: #333;
-    }
-
-    header {
-        background: #f2ebe9;
-        padding: 20px;
-        text-align: center;
-        font-size: 26px;
-        font-weight: bold;
-        color: #5a4a42;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .container {
-        max-width: 900px;
-        margin: 20px auto;
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-        margin-top: 0;
-        color: #6d5d53;
-    }
-
-    .search-box {
-        margin-bottom: 15px;
-    }
-
-    input[type="text"] {
-        width: 100%;
-        padding: 12px;
-        font-size: 16px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-    }
-
-    .word-card {
-        background: #fffdfc;
-        border: 1px solid #eaded8;
-        padding: 15px;
-        margin-bottom: 12px;
-        border-radius: 10px;
-    }
-
-    .eng {
-        font-size: 20px;
-        font-weight: bold;
-        color: #5a463a;
-    }
-
-    .pos {
-        font-size: 14px;
-        color: #8a7468;
-    }
-
-    .ch {
-        margin-top: 5px;
-        font-size: 16px;
-        color: #4a4a4a;
-    }
-</style>
-</head>
-<body>
-
-<header>TOEIC 550 必背單字（50 個）</header>
-
-<div class="container">
-
-    <h2>單字列表</h2>
-
-    <div class="search-box">
-        <input type="text" id="search" placeholder="輸入英文或中文搜尋單字…">
-    </div>
-
-    <div id="word-list"></div>
-
-</div>
-
-<script>
-// 50 個 TOEIC 550 字彙
-const words = [
-    {eng:"account", pos:"n.", ch:"帳戶；說明"},
-    {eng:"advertise", pos:"v.", ch:"登廣告；宣傳"},
-    {eng:"afford", pos:"v.", ch:"負擔得起"},
-    {eng:"agreement", pos:"n.", ch:"協議; 同意"},
-    {eng:"annual", pos:"adj.", ch:"年度的"},
-    {eng:"appointment", pos:"n.", ch:"約定；預約"},
-    {eng:"apply", pos:"v.", ch:"申請；應用"},
-    {eng:"arrange", pos:"v.", ch:"安排；整理"},
-    {eng:"assist", pos:"v.", ch:"協助"},
-    {eng:"balance", pos:"n.", ch:"餘額；平衡"},
-    {eng:"benefit", pos:"n.", ch:"利益；好處"},
-    {eng:"bill", pos:"n.", ch:"帳單"},
-    {eng:"borrow", pos:"v.", ch:"借入"},
-    {eng:"budget", pos:"n.", ch:"預算"},
-    {eng:"cancel", pos:"v.", ch:"取消"},
-    {eng:"client", pos:"n.", ch:"客戶；顧客"},
-    {eng:"confirm", pos:"v.", ch:"確認"},
-    {eng:"contact", pos:"v./n.", ch:"聯絡"},
-    {eng:"contract", pos:"n.", ch:"合約"},
-    {eng:"deliver", pos:"v.", ch:"配送；運送"},
-    {eng:"department", pos:"n.", ch:"部門"},
-    {eng:"discount", pos:"n.", ch:"折扣"},
-    {eng:"discussion", pos:"n.", ch:"討論"},
-    {eng:"document", pos:"n.", ch:"文件"},
-    {eng:"employee", pos:"n.", ch:"員工"},
-    {eng:"employer", pos:"n.", ch:"雇主"},
-    {eng:"equipment", pos:"n.", ch:"設備"},
-    {eng:"estimate", pos:"v./n.", ch:"估計；預估"},
-    {eng:"expense", pos:"n.", ch:"開支；費用"},
-    {eng:"feedback", pos:"n.", ch:"回饋；意見"},
-    {eng:"goal", pos:"n.", ch:"目標"},
-    {eng:"improve", pos:"v.", ch:"改善"},
-    {eng:"increase", pos:"v.", ch:"增加"},
-    {eng:"invoice", pos:"n.", ch:"發票；發貨單"},
-    {eng:"manager", pos:"n.", ch:"經理"},
-    {eng:"meeting", pos:"n.", ch:"會議"},
-    {eng:"notice", pos:"n.", ch:"公告；通知"},
-    {eng:"office", pos:"n.", ch:"辦公室"},
-    {eng:"order", pos:"v./n.", ch:"訂購；訂單"},
-    {eng:"package", pos:"n.", ch:"包裹；包裝"},
-    {eng:"password", pos:"n.", ch:"密碼"},
-    {eng:"payment", pos:"n.", ch:"付款"},
-    {eng:"policy", pos:"n.", ch:"政策；規定"},
-    {eng:"product", pos:"n.", ch:"產品"},
-    {eng:"register", pos:"v.", ch:"註冊；登記"},
-    {eng:"report", pos:"n.", ch:"報告"},
-    {eng:"reserve", pos:"v.", ch:"預約；保留"},
-    {eng:"schedule", pos:"n.", ch:"時間表；計畫"},
-    {eng:"service", pos:"n.", ch:"服務"},
-    {eng:"supplier", pos:"n.", ch:"供應商"},
-];
-
-// 將單字渲染到頁面
-function renderWords(filter="") {
-    const list = document.getElementById("word-list");
-    list.innerHTML = "";
-
-    const filtered = words.filter(w =>
-        w.eng.toLowerCase().includes(filter.toLowerCase()) ||
-        w.ch.includes(filter)
-    );
-
-    filtered.forEach(w => {
-        const card = document.createElement("div");
-        card.className = "word-card";
-        card.innerHTML = `
-            <div class="eng">${w.eng}</div>
-            <div class="pos">${w.pos}</div>
-            <div class="ch">${w.ch}</div>
-        `;
-        list.appendChild(card);
-    });
+function checkAnswers(){ 
+    questions.forEach((q, idx)=>{ 
+        document.getElementById("ans"+idx).style.display="block"; 
+    }); 
 }
-
-renderWords();
-
-// 搜尋功能
-document.getElementById("search").addEventListener("input", e => {
-    renderWords(e.target.value);
-});
 </script>
-
 </body>
 </html>
+
+

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>職場辦公室文法測驗｜TOEIC 550</title>
+<style>
+body { font-family:"Noto Sans TC",sans-serif; background:#f7f5f2; padding:20px; color:#444;}
+.container { max-width:850px; margin:auto; background:#fff; padding:25px; border-radius:12px;}
+.question { margin-bottom:25px; padding:15px; background:#fafafa; border-left:5px solid #c8c2bd;}
+.option { margin:6px 0; }
+.answer-block { margin-top:8px; padding:10px; background:#f0edea; border-radius:8px; display:none;}
+.correct-text { color:#3c7a3c; font-weight:bold;}
+button { display:block; margin:auto; padding:12px 24px; background:#c4b7a6; color:white; border:none; border-radius:8px;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>TOEIC 550 職場辦公室英文【文法】測驗（10 題）</h2>
+<form id="quizForm"></form>
+<br>
+<button onclick="checkAnswers()">送出答案</button>
+</div>
+
+<script>
+const questions = [
+{q:"1. Please submit the report _____ Friday.",
+ options:["at","in","by","from"],
+ answer:"by",
+ explain:"by + 時間＝截止時間（TOEIC 常考）"},
+{q:"2. The manager asked all staff _____ attend the meeting.",
+ options:["to","for","with","of"],
+ answer:"to",
+ explain:"ask + 人 + to + 原形動詞"},
+{q:"3. Ms. Lee is responsible _____ customer complaints.",
+ options:["for","to","with","of"],
+ answer:"for",
+ explain:"be responsible for 為固定搭配"},
+{q:"4. The email _____ by the manager yesterday.",
+ options:["send","sent","was sent","is sending"],
+ answer:"was sent",
+ explain:"被動語態：過去式 was/were + p.p."},
+{q:"5. We will discuss the issue _____ the meeting.",
+ options:["at","on","in","by"],
+ answer:"at",
+ explain:"at the meeting 為固定用法"},
+{q:"6. He works _____ the sales department.",
+ options:["at","on","in","by"],
+ answer:"in",
+ explain:"in + department / company"},
+{q:"7. The document needs _____ before approval.",
+ options:["review","reviewed","reviewing","reviews"],
+ answer:"reviewing",
+ explain:"need + V-ing 表被動意義"},
+{q:"8. Please let me know _____ you are available.",
+ options:["if","what","that","which"],
+ answer:"if",
+ explain:"if 表示「是否」"},
+{q:"9. She has worked here _____ five years.",
+ options:["since","for","during","from"],
+ answer:"for",
+ explain:"for + 一段時間"},
+{q:"10. The meeting was canceled _____ the storm.",
+ options:["because","because of","although","despite"],
+ answer:"because of",
+ explain:"because of + 名詞"}
+];
+
+const form = document.getElementById("quizForm");
+questions.forEach((q,i)=>{
+ let html = `<div class="question"><p>${q.q}</p>`;
+ q.options.forEach(opt=>{
+  html += `<label class="option">
+   <input type="radio" name="q${i}" value="${opt}"> ${opt}
+  </label>`;
+ });
+ html += `<div class="answer-block" id="ans${i}">
+ <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
+ <p><strong>文法解析：</strong>${q.explain}</p>
+ </div></div>`;
+ form.innerHTML += html;
+});
+
+function checkAnswers(){
+ questions.forEach((q,i)=>{
+  document.getElementById("ans"+i).style.display="block";
+ });
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>旅遊與交通文法測驗｜TOEIC 550</title>
+<style>
+body { font-family:"Noto Sans TC",sans-serif; background:#f7f5f2; padding:20px; color:#444;}
+.container { max-width:850px; margin:auto; background:#fff; padding:25px; border-radius:12px;}
+.question { margin-bottom:25px; padding:15px; background:#fafafa; border-left:5px solid #c8c2bd;}
+.option { margin:6px 0; }
+.answer-block { margin-top:8px; padding:10px; background:#f0edea; border-radius:8px; display:none;}
+.correct-text { color:#3c7a3c; font-weight:bold;}
+button { display:block; margin:auto; padding:12px 24px; background:#c4b7a6; color:white; border:none; border-radius:8px;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>TOEIC 550 旅遊與交通英文【文法】測驗（10 題）</h2>
+<form id="quizForm"></form>
+<br>
+<button onclick="checkAnswers()">送出答案</button>
+</div>
+
+<script>
+const questions = [
+{q:"1. Passengers must arrive _____ the airport two hours early.",
+ options:["at","in","on","to"],
+ answer:"at",
+ explain:"arrive at + 小地點（機場、車站）"},
+{q:"2. The flight was delayed _____ bad weather.",
+ options:["because","because of","although","during"],
+ answer:"because of",
+ explain:"because of + 名詞"},
+{q:"3. Please check _____ at least 30 minutes before departure.",
+ options:["in","on","out","up"],
+ answer:"in",
+ explain:"check in 為固定片語"},
+{q:"4. The train _____ at 7:30 a.m. every day.",
+ options:["leave","leaves","left","is leaving"],
+ answer:"leaves",
+ explain:"固定時刻 → 現在簡單式"},
+{q:"5. All luggage must _____ at the counter.",
+ options:["check","checked","be checked","checking"],
+ answer:"be checked",
+ explain:"被動語態：must + be + p.p."},
+{q:"6. We stayed at the hotel _____ three nights.",
+ options:["since","for","during","from"],
+ answer:"for",
+ explain:"for + 一段時間"},
+{q:"7. The boarding gate will close _____ 10 minutes.",
+ options:["after","before","during","until"],
+ answer:"after",
+ explain:"after + 時間點"},
+{q:"8. Please make sure your passport is _____.",
+ options:["valid","validate","validity","validating"],
+ answer:"valid",
+ explain:"is + 形容詞"},
+{q:"9. The bus stop is located _____ the station.",
+ options:["near","between","among","during"],
+ answer:"near",
+ explain:"near + 地點"},
+{q:"10. The flight was canceled _____ the strike.",
+ options:["because","because of","although","however"],
+ answer:"because of",
+ explain:"because of + 名詞"}
+];
+
+const form = document.getElementById("quizForm");
+questions.forEach((q,i)=>{
+ let html = `<div class="question"><p>${q.q}</p>`;
+ q.options.forEach(opt=>{
+  html += `<label class="option">
+   <input type="radio" name="q${i}" value="${opt}"> ${opt}
+  </label>`;
+ });
+ html += `<div class="answer-block" id="ans${i}">
+ <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
+ <p><strong>文法解析：</strong>${q.explain}</p>
+ </div></div>`;
+ form.innerHTML += html;
+});
+
+function checkAnswers(){
+ questions.forEach((q,i)=>{
+  document.getElementById("ans"+i).style.display="block";
+ });
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>銷售與行銷文法測驗｜TOEIC 550</title>
+<style>
+body { font-family:"Noto Sans TC",sans-serif; background:#f7f5f2; padding:20px; color:#444;}
+.container { max-width:850px; margin:auto; background:#fff; padding:25px; border-radius:12px;}
+.question { margin-bottom:25px; padding:15px; background:#fafafa; border-left:5px solid #c8c2bd;}
+.option { margin:6px 0; }
+.answer-block { margin-top:8px; padding:10px; background:#f0edea; border-radius:8px; display:none;}
+.correct-text { color:#3c7a3c; font-weight:bold;}
+button { display:block; margin:auto; padding:12px 24px; background:#c4b7a6; color:white; border:none; border-radius:8px;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>TOEIC 550 銷售與行銷英文【文法】測驗（10 題）</h2>
+<form id="quizForm"></form>
+<br>
+<button onclick="checkAnswers()">送出答案</button>
+</div>
+
+<script>
+const questions = [
+{q:"1. This product is _____ than the previous one.",
+ options:["more expensive","most expensive","expensive","expensively"],
+ answer:"more expensive",
+ explain:"than 前面用比較級"},
+{q:"2. The company plans _____ a new product next month.",
+ options:["launch","to launch","launching","launched"],
+ answer:"to launch",
+ explain:"plan to + 原形動詞"},
+{q:"3. The advertisement was _____ by the marketing team.",
+ options:["create","creating","created","creates"],
+ answer:"created",
+ explain:"被動語態：be + p.p."},
+{q:"4. Customers are interested _____ the special offer.",
+ options:["in","on","at","for"],
+ answer:"in",
+ explain:"be interested in 為固定用法"},
+{q:"5. This store offers _____ prices during the sale.",
+ options:["reduce","reducing","reduced","reduces"],
+ answer:"reduced",
+ explain:"reduced prices 為形容詞用法"},
+{q:"6. The campaign _____ last week was very successful.",
+ options:["launch","launched","launching","launches"],
+ answer:"launched",
+ explain:"過去分詞當形容詞"},
+{q:"7. The company provides free delivery _____ online orders.",
+ options:["for","to","with","at"],
+ answer:"for",
+ explain:"provide A for B"},
+{q:"8. This advertisement is designed _____ young customers.",
+ options:["at","for","to","with"],
+ answer:"for",
+ explain:"be designed for + 對象"},
+{q:"9. Sales have increased _____ 20% this year.",
+ options:["by","at","to","with"],
+ answer:"by",
+ explain:"increase by + 數字"},
+{q:"10. The product was advertised _____ television.",
+ options:["on","in","at","by"],
+ answer:"on",
+ explain:"on television 為固定用法"}
+];
+
+const form = document.getElementById("quizForm");
+questions.forEach((q,i)=>{
+ let html = `<div class="question"><p>${q.q}</p>`;
+ q.options.forEach(opt=>{
+  html += `<label class="option">
+   <input type="radio" name="q${i}" value="${opt}"> ${opt}
+  </label>`;
+ });
+ html += `<div class="answer-block" id="ans${i}">
+ <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
+ <p><strong>文法解析：</strong>${q.explain}</p>
+ </div></div>`;
+ form.innerHTML += html;
+});
+
+function checkAnswers(){
+ questions.forEach((q,i)=>{
+  document.getElementById("ans"+i).style.display="block";
+ });
+}
+</script>
+
+</body>
+</html>

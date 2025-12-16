@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>TOEIC 550 綜合字彙測驗</title>
+    <title>TOEIC 550 綜合字彙能力測驗 - 靜態版</title>
     <style>
         /* 基礎樣式 */
         body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; padding: 20px; line-height: 1.6; }
@@ -18,6 +18,7 @@
         /* 測驗內容樣式 */
         .question { margin-bottom: 25px; padding: 15px; background: #fafafa; border-radius: 10px; border-left: 5px solid #c8c2bd; }
         .option { margin: 8px 0; display: block; cursor: pointer; }
+        /* 答案解析區塊初始隱藏 */
         .answer-block { margin-top: 12px; padding: 15px; background: #f0edea; border-radius: 8px; display: none; border: 1px dashed #c4b7a6; }
         .correct-text { color: #3c7a3c; font-weight: bold; font-size: 1.1em; }
         
@@ -30,7 +31,7 @@
 
 <div class="container">
     <h1>TOEIC 550 綜合字彙能力測驗</h1>
-    <p style="text-align:center">選擇你想練習的單字主題，點擊按鈕查看答案與解析。</p>
+    <p style="text-align:center">請選出最適合填入空格的單字，點擊按鈕查看答案與解析。</p>
 
     <div class="menu">
         <a href="#section-work">職場字彙</a>
@@ -40,180 +41,531 @@
 
     <div id="section-work">
         <h2>💼 職場字彙測驗</h2>
-        <form id="quizFormWork"></form>
-        <button class="check-button" onclick="checkAnswers('Work')">送出職場字彙答案</button>
+        <form id="quizFormWork">
+            
+            <div class="question">
+                <p><b>1.</b> The manager ______ a meeting for tomorrow morning.</p>
+                <label class="option"><input type="radio" name="work-q0" value="schedule"> schedule</label>
+                <label class="option"><input type="radio" name="work-q0" value="deliver"> deliver</label>
+                <label class="option"><input type="radio" name="work-q0" value="clean"> clean</label>
+                <label class="option"><input type="radio" name="work-q0" value="cancel"> cancel</label>
+                <div class="answer-block" id="work-ans0">
+                    <p><strong>正確答案：</strong><span class="correct-text">schedule</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>schedule</b>：安排、排定（行程）</p>
+                    <p style="margin:2px 0">• <b>deliver</b>：遞送</p>
+                    <p style="margin:2px 0">• <b>clean</b>：清潔</p>
+                    <p style="margin:2px 0">• <b>cancel</b>：取消</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><b>2.</b> Please ______ your report before 5 p.m.</p>
+                <label class="option"><input type="radio" name="work-q1" value="submit"> submit</label>
+                <label class="option"><input type="radio" name="work-q1" value="print"> print</label>
+                <label class="option"><input type="radio" name="work-q1" value="call"> call</label>
+                <label class="option"><input type="radio" name="work-q1" value="fix"> fix</label>
+                <div class="answer-block" id="work-ans1">
+                    <p><strong>正確答案：</strong><span class="correct-text">submit</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>submit</b>：提交、繳交</p>
+                    <p style="margin:2px 0">• <b>print</b>：列印</p>
+                    <p style="margin:2px 0">• <b>call</b>：打電話</p>
+                    <p style="margin:2px 0">• <b>fix</b>：修理</p>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><b>3.</b> All employees must ______ their ID badges.</p>
+                <label class="option"><input type="radio" name="work-q2" value="wear"> wear</label>
+                <label class="option"><input type="radio" name="work-q2" value="move"> move</label>
+                <label class="option"><input type="radio" name="work-q2" value="open"> open</label>
+                <label class="option"><input type="radio" name="work-q2" value="type"> type</label>
+                <div class="answer-block" id="work-ans2">
+                    <p><strong>正確答案：</strong><span class="correct-text">wear</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>wear</b>：配戴、穿戴</p>
+                    <p style="margin:2px 0">• <b>move</b>：移動</p>
+                    <p style="margin:2px 0">• <b>open</b>：打開</p>
+                    <p style="margin:2px 0">• <b>type</b>：打字</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>4.</b> The new ______ will answer phone calls.</p>
+                <label class="option"><input type="radio" name="work-q3" value="assistant"> assistant</label>
+                <label class="option"><input type="radio" name="work-q3" value="folder"> folder</label>
+                <label class="option"><input type="radio" name="work-q3" value="contract"> contract</label>
+                <label class="option"><input type="radio" name="work-q3" value="printer"> printer</label>
+                <div class="answer-block" id="work-ans3">
+                    <p><strong>正確答案：</strong><span class="correct-text">assistant</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>assistant</b>：助理</p>
+                    <p style="margin:2px 0">• <b>folder</b>：資料夾</p>
+                    <p style="margin:2px 0">• <b>contract</b>：合約</p>
+                    <p style="margin:2px 0">• <b>printer</b>：印表機</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>5.</b> Please ______ the document carefully.</p>
+                <label class="option"><input type="radio" name="work-q4" value="review"> review</label>
+                <label class="option"><input type="radio" name="work-q4" value="erase"> erase</label>
+                <label class="option"><input type="radio" name="work-q4" value="arrive"> arrive</label>
+                <label class="option"><input type="radio" name="work-q4" value="translate"> translate</label>
+                <div class="answer-block" id="work-ans4">
+                    <p><strong>正確答案：</strong><span class="correct-text">review</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>review</b>：檢查、審閱</p>
+                    <p style="margin:2px 0">• <b>erase</b>：擦掉</p>
+                    <p style="margin:2px 0">• <b>arrive</b>：抵達</p>
+                    <p style="margin:2px 0">• <b>translate</b>：翻譯</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>6.</b> The office will ______ to a new building next month.</p>
+                <label class="option"><input type="radio" name="work-q5" value="relocate"> relocate</label>
+                <label class="option"><input type="radio" name="work-q5" value="copy"> copy</label>
+                <label class="option"><input type="radio" name="work-q5" value="purchase"> purchase</label>
+                <label class="option"><input type="radio" name="work-q5" value="arrange"> arrange</label>
+                <div class="answer-block" id="work-ans5">
+                    <p><strong>正確答案：</strong><span class="correct-text">relocate</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>relocate</b>：搬遷</p>
+                    <p style="margin:2px 0">• <b>copy</b>：影印</p>
+                    <p style="margin:2px 0">• <b>purchase</b>：購買</p>
+                    <p style="margin:2px 0">• <b>arrange</b>：安排</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>7.</b> Employees must follow the company ______.</p>
+                <label class="option"><input type="radio" name="work-q6" value="policy"> policy</label>
+                <label class="option"><input type="radio" name="work-q6" value="keyboard"> keyboard</label>
+                <label class="option"><input type="radio" name="work-q6" value="budget"> budget</label>
+                <label class="option"><input type="radio" name="work-q6" value="address"> address</label>
+                <div class="answer-block" id="work-ans6">
+                    <p><strong>正確答案：</strong><span class="correct-text">policy</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>policy</b>：政策、規定</p>
+                    <p style="margin:2px 0">• <b>keyboard</b>：鍵盤</p>
+                    <p style="margin:2px 0">• <b>budget</b>：預算</p>
+                    <p style="margin:2px 0">• <b>address</b>：地址</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>8.</b> The staff prepared the ______ room.</p>
+                <label class="option"><input type="radio" name="work-q7" value="conference"> conference</label>
+                <label class="option"><input type="radio" name="work-q7" value="envelope"> envelope</label>
+                <label class="option"><input type="radio" name="work-q7" value="computer"> computer</label>
+                <label class="option"><input type="radio" name="work-q7" value="supervisor"> supervisor</label>
+                <div class="answer-block" id="work-ans7">
+                    <p><strong>正確答案：</strong><span class="correct-text">conference</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>conference</b>：會議</p>
+                    <p style="margin:2px 0">• <b>envelope</b>：信封</p>
+                    <p style="margin:2px 0">• <b>computer</b>：電腦</p>
+                    <p style="margin:2px 0">• <b>supervisor</b>：主管</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>9.</b> We need to ______ the employee database.</p>
+                <label class="option"><input type="radio" name="work-q8" value="update"> update</label>
+                <label class="option"><input type="radio" name="work-q8" value="deliver"> deliver</label>
+                <label class="option"><input type="radio" name="work-q8" value="borrow"> borrow</label>
+                <label class="option"><input type="radio" name="work-q8" value="remind"> remind</label>
+                <div class="answer-block" id="work-ans8">
+                    <p><strong>正確答案：</strong><span class="correct-text">update</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>update</b>：更新</p>
+                    <p style="margin:2px 0">• <b>deliver</b>：遞送</p>
+                    <p style="margin:2px 0">• <b>borrow</b>：借用</p>
+                    <p style="margin:2px 0">• <b>remind</b>：提醒</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>10.</b> Please ______ the file to the email.</p>
+                <label class="option"><input type="radio" name="work-q9" value="attach"> attach</label>
+                <label class="option"><input type="radio" name="work-q9" value="replace"> replace</label>
+                <label class="option"><input type="radio" name="work-q9" value="store"> store</label>
+                <label class="option"><input type="radio" name="work-q9" value="approve"> approve</label>
+                <div class="answer-block" id="work-ans9">
+                    <p><strong>正確答案：</strong><span class="correct-text">attach</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>attach</b>：附件、附加</p>
+                    <p style="margin:2px 0">• <b>replace</b>：替換</p>
+                    <p style="margin:2px 0">• <b>store</b>：儲存</p>
+                    <p style="margin:2px 0">• <b>approve</b>：核准</p>
+                </div>
+            </div>
+            
+        </form>
+        <button class="check-button" onclick="showAnswers('work')">送出職場字彙答案</button>
     </div>
     
     <div id="section-travel">
         <h2>✈️ 旅遊與交通字彙測驗</h2>
-        <form id="quizFormTravel"></form>
-        <button class="check-button" onclick="checkAnswers('Travel')">送出旅遊單字答案</button>
+        <form id="quizFormTravel">
+            
+            <div class="question">
+                <p><b>1.</b> Please check your ______ at the counter before departure.</p>
+                <label class="option"><input type="radio" name="travel-q0" value="luggage"> luggage</label>
+                <label class="option"><input type="radio" name="travel-q0" value="passport"> passport</label>
+                <label class="option"><input type="radio" name="travel-q0" value="ticket"> ticket</label>
+                <label class="option"><input type="radio" name="travel-q0" value="insurance"> insurance</label>
+                <div class="answer-block" id="travel-ans0">
+                    <p><strong>正確答案：</strong><span class="correct-text">luggage</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>luggage</b>：行李</p>
+                    <p style="margin:2px 0">• <b>passport</b>：護照</p>
+                    <p style="margin:2px 0">• <b>ticket</b>：機票</p>
+                    <p style="margin:2px 0">• <b>insurance</b>：旅遊保險</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>2.</b> You need a ______ to enter another country.</p>
+                <label class="option"><input type="radio" name="travel-q1" value="passport"> passport</label>
+                <label class="option"><input type="radio" name="travel-q1" value="ticket"> ticket</label>
+                <label class="option"><input type="radio" name="travel-q1" value="schedule"> schedule</label>
+                <label class="option"><input type="radio" name="travel-q1" value="reservation"> reservation</label>
+                <div class="answer-block" id="travel-ans1">
+                    <p><strong>正確答案：</strong><span class="correct-text">passport</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>passport</b>：護照</p>
+                    <p style="margin:2px 0">• <b>ticket</b>：機票</p>
+                    <p style="margin:2px 0">• <b>schedule</b>：時刻表</p>
+                    <p style="margin:2px 0">• <b>reservation</b>：訂房/訂位</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>3.</b> The ______ shows the flight departure and arrival times.</p>
+                <label class="option"><input type="radio" name="travel-q2" value="schedule"> schedule</label>
+                <label class="option"><input type="radio" name="travel-q2" value="boarding pass"> boarding pass</label>
+                <label class="option"><input type="radio" name="travel-q2" value="destination"> destination</label>
+                <label class="option"><input type="radio" name="travel-q2" value="reservation"> reservation</label>
+                <div class="answer-block" id="travel-ans2">
+                    <p><strong>正確答案：</strong><span class="correct-text">schedule</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>schedule</b>：時刻表</p>
+                    <p style="margin:2px 0">• <b>boarding pass</b>：登機證</p>
+                    <p style="margin:2px 0">• <b>destination</b>：目的地</p>
+                    <p style="margin:2px 0">• <b>reservation</b>：訂房/訂位</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>4.</b> The hotel staff confirmed my ______ for two nights.</p>
+                <label class="option"><input type="radio" name="travel-q3" value="reservation"> reservation</label>
+                <label class="option"><input type="radio" name="travel-q3" value="luggage"> luggage</label>
+                <label class="option"><input type="radio" name="travel-q3" value="ticket"> ticket</label>
+                <label class="option"><input type="radio" name="travel-q3" value="passport"> passport</label>
+                <div class="answer-block" id="travel-ans3">
+                    <p><strong>正確答案：</strong><span class="correct-text">reservation</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>reservation</b>：訂房/訂位</p>
+                    <p style="margin:2px 0">• <b>luggage</b>：行李</p>
+                    <p style="margin:2px 0">• <b>ticket</b>：機票</p>
+                    <p style="margin:2px 0">• <b>passport</b>：護照</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>5.</b> Don’t forget your ______ when boarding the plane.</p>
+                <label class="option"><input type="radio" name="travel-q4" value="boarding pass"> boarding pass</label>
+                <label class="option"><input type="radio" name="travel-q4" value="destination"> destination</label>
+                <label class="option"><input type="radio" name="travel-q4" value="insurance"> insurance</label>
+                <label class="option"><input type="radio" name="travel-q4" value="flight"> flight</label>
+                <div class="answer-block" id="travel-ans4">
+                    <p><strong>正確答案：</strong><span class="correct-text">boarding pass</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>boarding pass</b>：登機證</p>
+                    <p style="margin:2px 0">• <b>destination</b>：目的地</p>
+                    <p style="margin:2px 0">• <b>insurance</b>：旅遊保險</p>
+                    <p style="margin:2px 0">• <b>flight</b>：班機</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>6.</b> The plane leaves from gate number 12 at the ______.</p>
+                <label class="option"><input type="radio" name="travel-q5" value="boarding gate"> boarding gate</label>
+                <label class="option"><input type="radio" name="travel-q5" value="luggage"> luggage</label>
+                <label class="option"><input type="radio" name="travel-q5" value="passport"> passport</label>
+                <label class="option"><input type="radio" name="travel-q5" value="ticket"> ticket</label>
+                <div class="answer-block" id="travel-ans5">
+                    <p><strong>正確答案：</strong><span class="correct-text">boarding gate</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>boarding gate</b>：登機口</p>
+                    <p style="margin:2px 0">• <b>luggage</b>：行李</p>
+                    <p style="margin:2px 0">• <b>passport</b>：護照</p>
+                    <p style="margin:2px 0">• <b>ticket</b>：機票</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>7.</b> My ______ covers medical emergencies while traveling.</p>
+                <label class="option"><input type="radio" name="travel-q6" value="insurance"> insurance</label>
+                <label class="option"><input type="radio" name="travel-q6" value="schedule"> schedule</label>
+                <label class="option"><input type="radio" name="travel-q6" value="flight"> flight</label>
+                <label class="option"><input type="radio" name="travel-q6" value="reservation"> reservation</label>
+                <div class="answer-block" id="travel-ans6">
+                    <p><strong>正確答案：</strong><span class="correct-text">insurance</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>insurance</b>：旅遊保險</p>
+                    <p style="margin:2px 0">• <b>schedule</b>：時刻表</p>
+                    <p style="margin:2px 0">• <b>flight</b>：班機</p>
+                    <p style="margin:2px 0">• <b>reservation</b>：訂房/訂位</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>8.</b> The taxi driver asked about my ______.</p>
+                <label class="option"><input type="radio" name="travel-q7" value="destination"> destination</label>
+                <label class="option"><input type="radio" name="travel-q7" value="ticket"> ticket</label>
+                <label class="option"><input type="radio" name="travel-q7" value="luggage"> luggage</label>
+                <label class="option"><input type="radio" name="travel-q7" value="passport"> passport</label>
+                <div class="answer-block" id="travel-ans7">
+                    <p><strong>正確答案：</strong><span class="correct-text">destination</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>destination</b>：目的地</p>
+                    <p style="margin:2px 0">• <b>ticket</b>：機票</p>
+                    <p style="margin:2px 0">• <b>luggage</b>：行李</p>
+                    <p style="margin:2px 0">• <b>passport</b>：護照</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>9.</b> The hotel provides a complimentary ______ for guests.</p>
+                <label class="option"><input type="radio" name="travel-q8" value="shuttle bus"> shuttle bus</label>
+                <label class="option"><input type="radio" name="travel-q8" value="boarding pass"> boarding pass</label>
+                <label class="option"><input type="radio" name="travel-q8" value="reservation"> reservation</label>
+                <label class="option"><input type="radio" name="travel-q8" value="schedule"> schedule</label>
+                <div class="answer-block" id="travel-ans8">
+                    <p><strong>正確答案：</strong><span class="correct-text">shuttle bus</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>shuttle bus</b>：接駁車</p>
+                    <p style="margin:2px 0">• <b>boarding pass</b>：登機證</p>
+                    <p style="margin:2px 0">• <b>reservation</b>：訂房/訂位</p>
+                    <p style="margin:2px 0">• <b>schedule</b>：時刻表</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>10.</b> You should check the ______ to avoid missing your train.</p>
+                <label class="option"><input type="radio" name="travel-q9" value="timetable"> timetable</label>
+                <label class="option"><input type="radio" name="travel-q9" value="luggage"> luggage</label>
+                <label class="option"><input type="radio" name="travel-q9" value="passport"> passport</label>
+                <label class="option"><input type="radio" name="travel-q9" value="ticket"> ticket</label>
+                <div class="answer-block" id="travel-ans9">
+                    <p><strong>正確答案：</strong><span class="correct-text">timetable</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>timetable</b>：列車時刻表</p>
+                    <p style="margin:2px 0">• <b>luggage</b>：行李</p>
+                    <p style="margin:2px 0">• <b>passport</b>：護照</p>
+                    <p style="margin:2px 0">• <b>ticket</b>：機票</p>
+                </div>
+            </div>
+
+        </form>
+        <button class="check-button" onclick="showAnswers('travel')">送出旅遊單字答案</button>
     </div>
     
     <div id="section-sales">
         <h2>📊 銷售與行銷字彙測驗</h2>
-        <form id="quizFormSales"></form>
-        <button class="check-button" onclick="checkAnswers('Sales')">送出銷售與行銷答案</button>
+        <form id="quizFormSales">
+            
+            <div class="question">
+                <p><b>1.</b> The company prepared a detailed ______ for the new product launch.</p>
+                <label class="option"><input type="radio" name="sales-q0" value="presentation"> presentation</label>
+                <label class="option"><input type="radio" name="sales-q0" value="catalog"> catalog</label>
+                <label class="option"><input type="radio" name="sales-q0" value="brochure"> brochure</label>
+                <label class="option"><input type="radio" name="sales-q0" value="spec sheet"> spec sheet</label>
+                <div class="answer-block" id="sales-ans0">
+                    <p><strong>正確答案：</strong><span class="correct-text">presentation</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>presentation</b>：產品介紹</p>
+                    <p style="margin:2px 0">• <b>catalog</b>：產品目錄</p>
+                    <p style="margin:2px 0">• <b>brochure</b>：小冊子</p>
+                    <p style="margin:2px 0">• <b>spec sheet</b>：產品規格表</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>2.</b> To attract more customers, we launched a ______ this weekend.</p>
+                <label class="option"><input type="radio" name="sales-q1" value="promotion"> promotion</label>
+                <label class="option"><input type="radio" name="sales-q1" value="limited offer"> limited offer</label>
+                <label class="option"><input type="radio" name="sales-q1" value="bundle"> bundle</label>
+                <label class="option"><input type="radio" name="sales-q1" value="discount"> discount</label>
+                <div class="answer-block" id="sales-ans1">
+                    <p><strong>正確答案：</strong><span class="correct-text">promotion</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>promotion</b>：促銷活動</p>
+                    <p style="margin:2px 0">• <b>limited offer</b>：限時優惠</p>
+                    <p style="margin:2px 0">• <b>bundle</b>：組合優惠</p>
+                    <p style="margin:2px 0">• <b>discount</b>：折扣</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>3.</b> Check the ______ to see which competitor offers lower prices.</p>
+                <label class="option"><input type="radio" name="sales-q2" value="price tag"> price tag</label>
+                <label class="option"><input type="radio" name="sales-q2" value="cost analysis"> cost analysis</label>
+                <label class="option"><input type="radio" name="sales-q2" value="invoice"> invoice</label>
+                <label class="option"><input type="radio" name="sales-q2" value="quote"> quote</label>
+                <div class="answer-block" id="sales-ans2">
+                    <p><strong>正確答案：</strong><span class="correct-text">cost analysis</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>price tag</b>：價格標籤</p>
+                    <p style="margin:2px 0">• <b>cost analysis</b>：成本分析</p>
+                    <p style="margin:2px 0">• <b>invoice</b>：發票</p>
+                    <p style="margin:2px 0">• <b>quote</b>：報價單</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>4.</b> The marketing team wrote a catchy ______ for the campaign.</p>
+                <label class="option"><input type="radio" name="sales-q3" value="slogan"> slogan</label>
+                <label class="option"><input type="radio" name="sales-q3" value="copy"> copy</label>
+                <label class="option"><input type="radio" name="sales-q3" value="headline"> headline</label>
+                <label class="option"><input type="radio" name="sales-q3" value="caption"> caption</label>
+                <div class="answer-block" id="sales-ans3">
+                    <p><strong>正確答案：</strong><span class="correct-text">slogan</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>slogan</b>：廣告標語</p>
+                    <p style="margin:2px 0">• <b>copy</b>：廣告文案</p>
+                    <p style="margin:2px 0">• <b>headline</b>：標題</p>
+                    <p style="margin:2px 0">• <b>caption</b>：說明文字</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>5.</b> Customers are encouraged to join the ______ for rewards.</p>
+                <label class="option"><input type="radio" name="sales-q4" value="loyalty program"> loyalty program</label>
+                <label class="option"><input type="radio" name="sales-q4" value="campaign"> campaign</label>
+                <label class="option"><input type="radio" name="sales-q4" value="promotion"> promotion</label>
+                <label class="option"><input type="radio" name="sales-q4" value="referral program"> referral program</label>
+                <div class="answer-block" id="sales-ans4">
+                    <p><strong>正確答案：</strong><span class="correct-text">loyalty program</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>loyalty program</b>：會員獎勵計畫</p>
+                    <p style="margin:2px 0">• <b>campaign</b>：行銷活動</p>
+                    <p style="margin:2px 0">• <b>promotion</b>：促銷活動</p>
+                    <p style="margin:2px 0">• <b>referral program</b>：推薦計畫</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>6.</b> The manager created a detailed ______ of all product features.</p>
+                <label class="option"><input type="radio" name="sales-q5" value="catalog"> catalog</label>
+                <label class="option"><input type="radio" name="sales-q5" value="spec sheet"> spec sheet</label>
+                <label class="option"><input type="radio" name="sales-q5" value="brochure"> brochure</label>
+                <label class="option"><input type="radio" name="sales-q5" value="presentation"> presentation</label>
+                <div class="answer-block" id="sales-ans5">
+                    <p><strong>正確答案：</strong><span class="correct-text">catalog</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>catalog</b>：產品目錄</p>
+                    <p style="margin:2px 0">• <b>spec sheet</b>：產品規格表</p>
+                    <p style="margin:2px 0">• <b>brochure</b>：小冊子</p>
+                    <p style="margin:2px 0">• <b>presentation</b>：產品介紹</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>7.</b> We ran an online ______ to attract social media users.</p>
+                <label class="option"><input type="radio" name="sales-q6" value="campaign"> campaign</label>
+                <label class="option"><input type="radio" name="sales-q6" value="advertisement"> advertisement</label>
+                <label class="option"><input type="radio" name="sales-q6" value="promotion"> promotion</label>
+                <label class="option"><input type="radio" name="sales-q6" value="branding"> branding</label>
+                <div class="answer-block" id="sales-ans6">
+                    <p><strong>正確答案：</strong><span class="correct-text">campaign</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>campaign</b>：行銷活動</p>
+                    <p style="margin:2px 0">• <b>advertisement</b>：廣告</p>
+                    <p style="margin:2px 0">• <b>promotion</b>：促銷活動</p>
+                    <p style="margin:2px 0">• <b>branding</b>：品牌行銷</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>8.</b> The store offers a special ______ if you buy two products together.</p>
+                <label class="option"><input type="radio" name="sales-q7" value="bundle"> bundle</label>
+                <label class="option"><input type="radio" name="sales-q7" value="limited offer"> limited offer</label>
+                <label class="option"><input type="radio" name="sales-q7" value="discount"> discount</label>
+                <label class="option"><input type="radio" name="sales-q7" value="promotion"> promotion</label>
+                <div class="answer-block" id="sales-ans7">
+                    <p><strong>正確答案：</strong><span class="correct-text">bundle</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>bundle</b>：組合優惠</p>
+                    <p style="margin:2px 0">• <b>limited offer</b>：限時優惠</p>
+                    <p style="margin:2px 0">• <b>discount</b>：折扣</p>
+                    <p style="margin:2px 0">• <b>promotion</b>：促銷活動</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>9.</b> Check customer ______ to improve our product design.</p>
+                <label class="option"><input type="radio" name="sales-q8" value="feedback"> feedback</label>
+                <label class="option"><input type="radio" name="sales-q8" value="survey"> survey</label>
+                <label class="option"><input type="radio" name="sales-q8" value="rating"> rating</label>
+                <label class="option"><input type="radio" name="sales-q8" value="review"> review</label>
+                <div class="answer-block" id="sales-ans8">
+                    <p><strong>正確答案：</strong><span class="correct-text">feedback</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>feedback</b>：顧客回饋</p>
+                    <p style="margin:2px 0">• <b>survey</b>：問卷調查</p>
+                    <p style="margin:2px 0">• <b>rating</b>：評分</p>
+                    <p style="margin:2px 0">• <b>review</b>：評論</p>
+                </div>
+            </div>
+            
+            <div class="question">
+                <p><b>10.</b> The advertisement was posted on various ______ channels.</p>
+                <label class="option"><input type="radio" name="sales-q9" value="media"> media</label>
+                <label class="option"><input type="radio" name="sales-q9" value="platform"> platform</label>
+                <label class="option"><input type="radio" name="sales-q9" value="newsletter"> newsletter</label>
+                <label class="option"><input type="radio" name="sales-q9" value="website"> website</label>
+                <div class="answer-block" id="sales-ans9">
+                    <p><strong>正確答案：</strong><span class="correct-text">media</span></p>
+                    <p><strong>單字解析：</strong></p>
+                    <p style="margin:2px 0">• <b>media</b>：媒體</p>
+                    <p style="margin:2px 0">• <b>platform</b>：平台</p>
+                    <p style="margin:2px 0">• <b>newsletter</b>：電子報</p>
+                    <p style="margin:2px 0">• <b>website</b>：網站</p>
+                </div>
+            </div>
+            
+        </form>
+        <button class="check-button" onclick="showAnswers('sales')">送出銷售與行銷答案</button>
     </div>
 
 </div>
 
 <script>
-// --- 1. 職場字彙資料 ---
-const workQuestions = [
-    { q: "The manager ______ a meeting for tomorrow morning.", answer: "schedule", options: [
-        { word: "schedule", zh: "安排、排定（行程）" }, { word: "deliver", zh: "遞送" }, { word: "clean", zh: "清潔" }, { word: "cancel", zh: "取消" }
-    ]},
-    { q: "Please ______ your report before 5 p.m.", answer: "submit", options: [
-        { word: "submit", zh: "提交、繳交" }, { word: "print", zh: "列印" }, { word: "call", zh: "打電話" }, { word: "fix", zh: "修理" }
-    ]},
-    { q: "All employees must ______ their ID badges.", answer: "wear", options: [
-        { word: "wear", zh: "配戴、穿戴" }, { word: "move", zh: "移動" }, { word: "open", zh: "打開" }, { word: "type", zh: "打字" }
-    ]},
-    { q: "The new ______ will answer phone calls.", answer: "assistant", options: [
-        { word: "assistant", zh: "助理" }, { word: "folder", zh: "資料夾" }, { word: "contract", zh: "合約" }, { word: "printer", zh: "印表機" }
-    ]},
-    { q: "Please ______ the document carefully.", answer: "review", options: [
-        { word: "review", zh: "檢查、審閱" }, { word: "erase", zh: "擦掉" }, { word: "arrive", zh: "抵達" }, { word: "translate", zh: "翻譯" }
-    ]},
-    { q: "The office will ______ to a new building next month.", answer: "relocate", options: [
-        { word: "relocate", zh: "搬遷" }, { word: "copy", zh: "影印" }, { word: "purchase", zh: "購買" }, { word: "arrange", zh: "安排" }
-    ]},
-    { q: "Employees must follow the company ______.", answer: "policy", options: [
-        { word: "policy", zh: "政策、規定" }, { word: "keyboard", zh: "鍵盤" }, { word: "budget", zh: "預算" }, { word: "address", zh: "地址" }
-    ]},
-    { q: "The staff prepared the ______ room.", answer: "conference", options: [
-        { word: "conference", zh: "會議" }, { word: "envelope", zh: "信封" }, { word: "computer", zh: "電腦" }, { word: "supervisor", zh: "主管" }
-    ]},
-    { q: "We need to ______ the employee database.", answer: "update", options: [
-        { word: "update", zh: "更新" }, { word: "deliver", zh: "遞送" }, { word: "borrow", zh: "借用" }, { word: "remind", zh: "提醒" }
-    ]},
-    { q: "Please ______ the file to the email.", answer: "attach", options: [
-        { word: "attach", zh: "附件、附加" }, { word: "replace", zh: "替換" }, { word: "store", zh: "儲存" }, { word: "approve", zh: "核准" }
-    ]}
-];
+// 統一顯示答案的 JavaScript 函數
+function showAnswers(type) {
+    let prefix = type;
+    let numQuestions = 10; // 每個測驗有 10 題
 
-// --- 2. 旅遊單字資料 ---
-const travelQuestions = [
-    { q:"Please check your ______ at the counter before departure.", answer:"luggage", 
-      options:[{word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}, {word:"insurance", zh:"旅遊保險"}]},
-    { q:"You need a ______ to enter another country.", answer:"passport",
-      options:[{word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}, {word:"schedule", zh:"時刻表"}, {word:"reservation", zh:"訂房/訂位"}]},
-    { q:"The ______ shows the flight departure and arrival times.", answer:"schedule",
-      options:[{word:"schedule", zh:"時刻表"}, {word:"boarding pass", zh:"登機證"}, {word:"destination", zh:"目的地"}, {word:"reservation", zh:"訂房/訂位"}]},
-    { q:"The hotel staff confirmed my ______ for two nights.", answer:"reservation",
-      options:[{word:"reservation", zh:"訂房/訂位"}, {word:"luggage", zh:"行李"}, {word:"ticket", zh:"機票"}, {word:"passport", zh:"護照"}]},
-    { q:"Don’t forget your ______ when boarding the plane.", answer:"boarding pass",
-      options:[{word:"boarding pass", zh:"登機證"}, {word:"destination", zh:"目的地"}, {word:"insurance", zh:"旅遊保險"}, {word:"flight", zh:"班機"}]},
-    { q: "The plane leaves from gate number 12 at the ______.", answer: "boarding gate",
-      options: [{ word: "boarding gate", zh: "登機口" }, { word: "luggage", zh: "行李" }, { word: "passport", zh: "護照" }, { word: "ticket", zh: "機票" }]},
-    { q:"My ______ covers medical emergencies while traveling.", answer:"insurance",
-      options:[{word:"insurance", zh:"旅遊保險"}, {word:"schedule", zh:"時刻表"}, {word:"flight", zh:"班機"}, {word:"reservation", zh:"訂房/訂位"}]},
-    { q:"The taxi driver asked about my ______.", answer:"destination",
-      options:[{word:"destination", zh:"目的地"}, {word:"ticket", zh:"機票"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}]},
-    { q:"The hotel provides a complimentary ______ for guests.", answer:"shuttle bus",
-      options:[{word:"shuttle bus", zh:"接駁車"}, {word:"boarding pass", zh:"登機證"}, {word:"reservation", zh:"訂房/訂位"}, {word:"schedule", zh:"時刻表"}]},
-    { q:"You should check the ______ to avoid missing your train.", answer:"timetable",
-      options:[{word:"timetable", zh:"列車時刻表"}, {word:"luggage", zh:"行李"}, {word:"passport", zh:"護照"}, {word:"ticket", zh:"機票"}]}
-];
-
-// --- 3. 銷售與行銷資料 ---
-const salesQuestions = [
-    { q:"The company prepared a detailed ______ for the new product launch.", answer:"presentation",
-      options:[{word:"presentation", zh:"產品介紹"}, {word:"catalog", zh:"產品目錄"}, {word:"brochure", zh:"小冊子"}, {word:"spec sheet", zh:"產品規格表"}]},
-    { q:"To attract more customers, we launched a ______ this weekend.", answer:"promotion",
-      options:[{word:"promotion", zh:"促銷活動"}, {word:"limited offer", zh:"限時優惠"}, {word:"bundle", zh:"組合優惠"}, {word:"discount", zh:"折扣"}]},
-    { q:"Check the ______ to see which competitor offers lower prices.", answer:"cost analysis",
-      options:[{word:"price tag", zh:"價格標籤"}, {word:"cost analysis", zh:"成本分析"}, {word:"invoice", zh:"發票"}, {word:"quote", zh:"報價單"}]},
-    { q:"The marketing team wrote a catchy ______ for the campaign.", answer:"slogan",
-      options:[{word:"slogan", zh:"廣告標語"}, {word:"copy", zh:"廣告文案"}, {word:"headline", zh:"標題"}, {word:"caption", zh:"說明文字"}]},
-    { q:"Customers are encouraged to join the ______ for rewards.", answer:"loyalty program",
-      options:[{word:"loyalty program", zh:"會員獎勵計畫"}, {word:"campaign", zh:"行銷活動"}, {word:"promotion", zh:"促銷活動"}, {word:"referral program", zh:"推薦計畫"}]},
-    { q:"The manager created a detailed ______ of all product features.", answer:"catalog",
-      options:[{word:"catalog", zh:"產品目錄"}, {word:"spec sheet", zh:"產品規格表"}, {word:"brochure", zh:"小冊子"}, {word:"presentation", zh:"產品介紹"}]},
-    { q:"We ran an online ______ to attract social media users.", answer:"campaign",
-      options:[{word:"campaign", zh:"行銷活動"}, {word:"advertisement", zh:"廣告"}, {word:"promotion", zh:"促銷活動"}, {word:"branding", zh:"品牌行銷"}]},
-    { q:"The store offers a special ______ if you buy two products together.", answer:"bundle",
-      options:[{word:"bundle", zh:"組合優惠"}, {word:"limited offer", zh:"限時優惠"}, {word:"discount", zh:"折扣"}, {word:"promotion", zh:"促銷活動"}]},
-    { q:"Check customer ______ to improve our product design.", answer:"feedback",
-      options:[{word:"feedback", zh:"顧客回饋"}, {word:"survey", zh:"問卷調查"}, {word:"rating", zh:"評分"}, {word:"review", zh:"評論"}]},
-    { q:"The advertisement was posted on various ______ channels.", answer:"media",
-      options:[{word:"media", zh:"媒體"}, {word:"platform", zh:"平台"}, {word:"newsletter", zh:"電子報"}, {word:"website", zh:"網站"}]}
-];
-
-// 統一的渲染函數
-function renderQuiz(questions, formId, prefix) {
-    const form = document.getElementById(formId);
-    if (!form) return;
-    form.innerHTML = ''; // 清空舊內容
-
-    questions.forEach((q, idx) => {
-        let html = `<div class="question" id="${prefix}Q${idx}">
-                        <p><b>${idx + 1}.</b> ${q.q}</p>`;
-        
-        q.options.forEach(opt => {
-            // 使用 prefix 確保每個測驗的 radio name 都是獨立的 (e.g., work-q0, travel-q0)
-            html += `<label class="option">
-                        <input type="radio" name="${prefix}-q${idx}" value="${opt.word}"> ${opt.word}
-                     </label>`;
-        });
-
-        html += `<div class="answer-block" id="${prefix}-ans${idx}">
-                     <p><strong>正確答案：</strong><span class="correct-text">${q.answer}</span></p>
-                     <p><strong>單字解析：</strong></p>`;
-        
-        q.options.forEach(opt => {
-            html += `<p style="margin:2px 0">• <b>${opt.word}</b>：${opt.zh}</p>`;
-        });
-        html += `</div></div>`;
-        form.innerHTML += html;
-    });
-}
-
-// 統一的檢查答案函數
-function checkAnswers(type) {
-    let questions, prefix;
-    let targetElementId;
-
-    if (type === 'Work') {
-        questions = workQuestions;
-        prefix = 'work';
-        targetElementId = 'section-work';
-    } else if (type === 'Travel') {
-        questions = travelQuestions;
-        prefix = 'travel';
-        targetElementId = 'section-travel';
-    } else if (type === 'Sales') {
-        questions = salesQuestions;
-        prefix = 'sales';
-        targetElementId = 'section-sales';
-    } else {
-        return;
+    for (let i = 0; i < numQuestions; i++) {
+        // 取得對應的答案區塊 ID (e.g., work-ans0, travel-ans1)
+        const answerBlock = document.getElementById(`${prefix}-ans${i}`);
+        if (answerBlock) {
+            answerBlock.style.display = "block"; // 顯示答案解析區塊
+        }
     }
 
-    questions.forEach((q, idx) => {
-        // 顯示答案解析區塊
-        const answerBlock = document.getElementById(`${prefix}-ans${idx}`);
-        if (answerBlock) {
-            answerBlock.style.display = "block";
-        }
-        
-        // 可選：可以加入檢查使用者答案是否正確的邏輯
-    });
-
-    // 點擊後跳轉到該區塊底部（可選，增加使用者體驗）
+    // 點擊後平滑滾動到該區塊底部（增加使用者體驗）
+    const targetElementId = `section-${type}`;
     const targetElement = document.getElementById(targetElementId);
     if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 }
-
-// 網頁載入完成後，渲染所有測驗
-document.addEventListener('DOMContentLoaded', () => {
-    renderQuiz(workQuestions, 'quizFormWork', 'work');
-    renderQuiz(travelQuestions, 'quizFormTravel', 'travel');
-    renderQuiz(salesQuestions, 'quizFormSales', 'sales');
-});
 </script>
 </body>
 </html>

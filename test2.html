@@ -2,27 +2,49 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>TOEIC 550 綜合文法測驗 - 靜態版</title>
+    <title>TOEIC 550 綜合文法測驗 - 具備選單切換</title>
     <style>
-        /* 基礎樣式 */
+        /* 統一基礎樣式 */
         body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; padding: 20px; line-height: 1.6; }
         .container { max-width: 850px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); margin-bottom: 40px; }
         h1 { text-align: center; color: #4a4a4a; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; margin-top: 5px; }
         h2 { text-align: center; color: #6b6b6b; font-size: 1.8em; margin-top: 30px; }
         
-        /* 選單樣式 */
-        .menu { text-align: center; margin-bottom: 30px; padding: 15px; background: #c4b7a6; border-radius: 10px; }
-        .menu a { color: white; text-decoration: none; padding: 10px 20px; margin: 0 10px; display: inline-block; border-radius: 5px; background: #b5a492; transition: background 0.3s; }
-        .menu a:hover { background: #9c8e7e; }
+        /* 選單/Tab 按鈕容器 */
+        .menu { text-align: center; margin-bottom: 30px; padding: 15px; background: #c4b7a6; border-radius: 10px; display: flex; justify-content: space-around; }
+        /* 選單/Tab 按鈕樣式 */
+        .menu-button { 
+            color: white; 
+            text-decoration: none; 
+            padding: 10px 20px; 
+            margin: 0 5px; 
+            border-radius: 5px; 
+            background: #b5a492; 
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+            font-size: 16px;
+            flex-grow: 1; /* 讓按鈕平均分配寬度 */
+        }
+        .menu-button:hover { background: #9c8e7e; }
+        /* 作用中的選單按鈕 */
+        .menu-button.active { 
+            background: #6b6b6b; /* 保持與單字版一致的深色 */
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
 
-        /* 測驗內容樣式 */
+        /* 測驗內容區塊 */
+        .tab-content { display: none; padding-top: 20px; }
+        .tab-content.active { display: block; }
+
+        /* 測驗題目樣式 */
         .question { margin-bottom: 25px; padding: 15px; background: #fafafa; border-radius: 10px; border-left: 5px solid #c8c2bd; }
         .option { margin: 8px 0; display: block; cursor: pointer; }
-        /* 答案解析區塊初始隱藏 */
         .answer-block { margin-top: 12px; padding: 15px; background: #f0edea; border-radius: 8px; display: none; border: 1px dashed #c4b7a6; }
         .correct-text { color: #3c7a3c; font-weight: bold; font-size: 1.1em; }
         
-        /* 按鈕樣式 */
+        /* 送出按鈕樣式 */
         .check-button { display: block; margin: 30px auto; padding: 12px 40px; border: none; background: #6b6b6b; color: white; border-radius: 8px; font-size: 18px; cursor: pointer; transition: 0.3s; }
         .check-button:hover { background: #555555; }
     </style>
@@ -34,99 +56,330 @@
     <p style="text-align:center">請選出最適合填入空格的選項，點擊按鈕查看答案與解析。</p>
 
     <div class="menu">
-        <a href="#section-work">職場辦公室文法</a>
-        <a href="#section-travel">旅遊與交通文法</a>
-        <a href="#section-sales">銷售與行銷文法</a>
+        <button class="menu-button active" onclick="openTab('work', this)">職場辦公室文法</button>
+        <button class="menu-button" onclick="openTab('travel', this)">旅遊與交通文法</button>
+        <button class="menu-button" onclick="openTab('sales', this)">銷售與行銷文法</button>
     </div>
 
-    <div id="section-work">
+    <div id="section-work" class="tab-content active">
         <h2>💼 職場辦公室英文【文法】測驗（10 題）</h2>
         <form id="quizFormWork">
-            <div class="question">
-                <p>1. Please submit the report _____ Friday.</p>
+            <div class="question"><p><b>1.</b> Please submit the report _____ Friday.</p>
                 <label class="option"><input type="radio" name="work-q0" value="at"> at</label>
                 <label class="option"><input type="radio" name="work-q0" value="in"> in</label>
                 <label class="option"><input type="radio" name="work-q0" value="by"> by</label>
                 <label class="option"><input type="radio" name="work-q0" value="from"> from</label>
-                <div class="answer-block" id="work-ans0">
-                    <p><strong>正確答案：</strong><span class="correct-text">by</span></p>
-                    <p><strong>文法解析：</strong>by + 時間＝截止時間（TOEIC 常考）</p>
-                </div>
+                <div class="answer-block" id="work-ans0"><p><strong>正確答案：</strong><span class="correct-text">by</span></p><p><strong>文法解析：</strong>by + 時間＝截止時間（TOEIC 常考）</p></div>
             </div>
             
-            <div class="question">
-                <p>2. The manager asked all staff _____ attend the meeting.</p>
+            <div class="question"><p><b>2.</b> The manager asked all staff _____ attend the meeting.</p>
                 <label class="option"><input type="radio" name="work-q1" value="to"> to</label>
                 <label class="option"><input type="radio" name="work-q1" value="for"> for</label>
                 <label class="option"><input type="radio" name="work-q1" value="with"> with</label>
                 <label class="option"><input type="radio" name="work-q1" value="of"> of</label>
-                <div class="answer-block" id="work-ans1">
-                    <p><strong>正確答案：</strong><span class="correct-text">to</span></p>
-                    <p><strong>文法解析：</strong>ask + 人 + to + 原形動詞</p>
-                </div>
+                <div class="answer-block" id="work-ans1"><p><strong>正確答案：</strong><span class="correct-text">to</span></p><p><strong>文法解析：</strong>ask + 人 + to + 原形動詞</p></div>
             </div>
             
-            <div class="question">
-                <p>3. Ms. Lee is responsible _____ customer complaints.</p>
+            <div class="question"><p><b>3.</b> Ms. Lee is responsible _____ customer complaints.</p>
                 <label class="option"><input type="radio" name="work-q2" value="for"> for</label>
                 <label class="option"><input type="radio" name="work-q2" value="to"> to</label>
                 <label class="option"><input type="radio" name="work-q2" value="with"> with</label>
                 <label class="option"><input type="radio" name="work-q2" value="of"> of</label>
-                <div class="answer-block" id="work-ans2">
-                    <p><strong>正確答案：</strong><span class="correct-text">for</span></p>
-                    <p><strong>文法解析：</strong>be responsible for 為固定搭配</p>
-                </div>
+                <div class="answer-block" id="work-ans2"><p><strong>正確答案：</strong><span class="correct-text">for</span></p><p><strong>文法解析：</strong>be responsible for 為固定搭配</p></div>
             </div>
             
-            <div class="question">
-                <p>4. The email _____ by the manager yesterday.</p>
+            <div class="question"><p><b>4.</b> The email _____ by the manager yesterday.</p>
                 <label class="option"><input type="radio" name="work-q3" value="send"> send</label>
                 <label class="option"><input type="radio" name="work-q3" value="sent"> sent</label>
                 <label class="option"><input type="radio" name="work-q3" value="was sent"> was sent</label>
                 <label class="option"><input type="radio" name="work-q3" value="is sending"> is sending</label>
-                <div class="answer-block" id="work-ans3">
-                    <p><strong>正確答案：</strong><span class="correct-text">was sent</span></p>
-                    <p><strong>文法解析：</strong>被動語態：過去式 was/were + p.p.</p>
-                </div>
+                <div class="answer-block" id="work-ans3"><p><strong>正確答案：</strong><span class="correct-text">was sent</span></p><p><strong>文法解析：</strong>被動語態：過去式 was/were + p.p.</p></div>
             </div>
             
-            <div class="question">
-                <p>5. We will discuss the issue _____ the meeting.</p>
+            <div class="question"><p><b>5.</b> We will discuss the issue _____ the meeting.</p>
                 <label class="option"><input type="radio" name="work-q4" value="at"> at</label>
                 <label class="option"><input type="radio" name="work-q4" value="on"> on</label>
                 <label class="option"><input type="radio" name="work-q4" value="in"> in</label>
                 <label class="option"><input type="radio" name="work-q4" value="by"> by</label>
-                <div class="answer-block" id="work-ans4">
-                    <p><strong>正確答案：</strong><span class="correct-text">at</span></p>
-                    <p><strong>文法解析：</strong>at the meeting 為固定用法</p>
-                </div>
+                <div class="answer-block" id="work-ans4"><p><strong>正確答案：</strong><span class="correct-text">at</span></p><p><strong>文法解析：</strong>at the meeting 為固定用法</p></div>
             </div>
             
-            <div class="question">
-                <p>6. He works _____ the sales department.</p>
+            <div class="question"><p><b>6.</b> He works _____ the sales department.</p>
                 <label class="option"><input type="radio" name="work-q5" value="at"> at</label>
                 <label class="option"><input type="radio" name="work-q5" value="on"> on</label>
                 <label class="option"><input type="radio" name="work-q5" value="in"> in</label>
                 <label class="option"><input type="radio" name="work-q5" value="by"> by</label>
-                <div class="answer-block" id="work-ans5">
-                    <p><strong>正確答案：</strong><span class="correct-text">in</span></p>
-                    <p><strong>文法解析：</strong>in + department / company</p>
-                </div>
+                <div class="answer-block" id="work-ans5"><p><strong>正確答案：</strong><span class="correct-text">in</span></p><p><strong>文法解析：</strong>in + department / company</p></div>
             </div>
             
-            <div class="question">
-                <p>7. The document needs _____ before approval.</p>
+            <div class="question"><p><b>7.</b> The document needs _____ before approval.</p>
                 <label class="option"><input type="radio" name="work-q6" value="review"> review</label>
                 <label class="option"><input type="radio" name="work-q6" value="reviewed"> reviewed</label>
                 <label class="option"><input type="radio" name="work-q6" value="reviewing"> reviewing</label>
                 <label class="option"><input type="radio" name="work-q6" value="reviews"> reviews</label>
-                <div class="answer-block" id="work-ans6">
-                    <p><strong>正確答案：</strong><span class="correct-text">reviewing</span></p>
-                    <p><strong>文法解析：</strong>need + V-ing 表被動意義</p>
-                </div>
+                <div class="answer-block" id="work-ans6"><p><strong>正確答案：</strong><span class="correct-text">reviewing</span></p><p><strong>文法解析：</strong>need + V-ing 表被動意義</p></div>
             </div>
             
-            <div class="question">
-                <p>8. Please let me know _____ you are available.</p>
+            <div class="question"><p><b>8.</b> Please let me know _____ you are available.</p>
                 <label class="option"><input type="radio" name="work-q7" value="if"> if</label>
-                <label class="option"><input type="radio
+                <label class="option"><input type="radio" name="work-q7" value="what"> what</label>
+                <label class="option"><input type="radio" name="work-q7" value="that"> that</label>
+                <label class="option"><input type="radio" name="work-q7" value="which"> which</label>
+                <div class="answer-block" id="work-ans7"><p><strong>正確答案：</strong><span class="correct-text">if</span></p><p><strong>文法解析：</strong>if 表示「是否」</p></div>
+            </div>
+            
+            <div class="question"><p><b>9.</b> She has worked here _____ five years.</p>
+                <label class="option"><input type="radio" name="work-q8" value="since"> since</label>
+                <label class="option"><input type="radio" name="work-q8" value="for"> for</label>
+                <label class="option"><input type="radio" name="work-q8" value="during"> during</label>
+                <label class="option"><input type="radio" name="work-q8" value="from"> from</label>
+                <div class="answer-block" id="work-ans8"><p><strong>正確答案：</strong><span class="correct-text">for</span></p><p><strong>文法解析：</strong>for + 一段時間</p></div>
+            </div>
+            
+            <div class="question"><p><b>10.</b> The meeting was canceled _____ the storm.</p>
+                <label class="option"><input type="radio" name="work-q9" value="because"> because</label>
+                <label class="option"><input type="radio" name="work-q9" value="because of"> because of</label>
+                <label class="option"><input type="radio" name="work-q9" value="although"> although</label>
+                <label class="option"><input type="radio" name="work-q9" value="despite"> despite</label>
+                <div class="answer-block" id="work-ans9"><p><strong>正確答案：</strong><span class="correct-text">because of</span></p><p><strong>文法解析：</strong>because of + 名詞</p></div>
+            </div>
+        </form>
+        <button class="check-button" onclick="showAnswers('work')">送出職場辦公室文法答案</button>
+    </div>
+    
+    <div id="section-travel" class="tab-content">
+        <h2>✈️ 旅遊與交通英文【文法】測驗（10 題）</h2>
+        <form id="quizFormTravel">
+            <div class="question"><p><b>1.</b> Passengers must arrive _____ the airport two hours early.</p>
+                <label class="option"><input type="radio" name="travel-q0" value="at"> at</label>
+                <label class="option"><input type="radio" name="travel-q0" value="in"> in</label>
+                <label class="option"><input type="radio" name="travel-q0" value="on"> on</label>
+                <label class="option"><input type="radio" name="travel-q0" value="to"> to</label>
+                <div class="answer-block" id="travel-ans0"><p><strong>正確答案：</strong><span class="correct-text">at</span></p><p><strong>文法解析：</strong>arrive at + 小地點（機場、車站）</p></div>
+            </div>
+            
+            <div class="question"><p><b>2.</b> The flight was delayed _____ bad weather.</p>
+                <label class="option"><input type="radio" name="travel-q1" value="because"> because</label>
+                <label class="option"><input type="radio" name="travel-q1" value="because of"> because of</label>
+                <label class="option"><input type="radio" name="travel-q1" value="although"> although</label>
+                <label class="option"><input type="radio" name="travel-q1" value="during"> during</label>
+                <div class="answer-block" id="travel-ans1"><p><strong>正確答案：</strong><span class="correct-text">because of</span></p><p><strong>文法解析：</strong>because of + 名詞</p></div>
+            </div>
+            
+            <div class="question"><p><b>3.</b> Please check _____ at least 30 minutes before departure.</p>
+                <label class="option"><input type="radio" name="travel-q2" value="in"> in</label>
+                <label class="option"><input type="radio" name="travel-q2" value="on"> on</label>
+                <label class="option"><input type="radio" name="travel-q2" value="out"> out</label>
+                <label class="option"><input type="radio" name="travel-q2" value="up"> up</label>
+                <div class="answer-block" id="travel-ans2"><p><strong>正確答案：</strong><span class="correct-text">in</span></p><p><strong>文法解析：</strong>check in 為固定片語</p></div>
+            </div>
+            
+            <div class="question"><p><b>4.</b> The train _____ at 7:30 a.m. every day.</p>
+                <label class="option"><input type="radio" name="travel-q3" value="leave"> leave</label>
+                <label class="option"><input type="radio" name="travel-q3" value="leaves"> leaves</label>
+                <label class="option"><input type="radio" name="travel-q3" value="left"> left</label>
+                <label class="option"><input type="radio" name="travel-q3" value="is leaving"> is leaving</label>
+                <div class="answer-block" id="travel-ans3"><p><strong>正確答案：</strong><span class="correct-text">leaves</span></p><p><strong>文法解析：</strong>固定時刻 → 現在簡單式</p></div>
+            </div>
+            
+            <div class="question"><p><b>5.</b> All luggage must _____ at the counter.</p>
+                <label class="option"><input type="radio" name="travel-q4" value="check"> check</label>
+                <label class="option"><input type="radio" name="travel-q4" value="checked"> checked</label>
+                <label class="option"><input type="radio" name="travel-q4" value="be checked"> be checked</label>
+                <label class="option"><input type="radio" name="travel-q4" value="checking"> checking</label>
+                <div class="answer-block" id="travel-ans4"><p><strong>正確答案：</strong><span class="correct-text">be checked</span></p><p><strong>文法解析：</strong>被動語態：must + be + p.p.</p></div>
+            </div>
+            
+            <div class="question"><p><b>6.</b> We stayed at the hotel _____ three nights.</p>
+                <label class="option"><input type="radio" name="travel-q5" value="since"> since</label>
+                <label class="option"><input type="radio" name="travel-q5" value="for"> for</label>
+                <label class="option"><input type="radio" name="travel-q5" value="during"> during</label>
+                <label class="option"><input type="radio" name="travel-q5" value="from"> from</label>
+                <div class="answer-block" id="travel-ans5"><p><strong>正確答案：</strong><span class="correct-text">for</span></p><p><strong>文法解析：</strong>for + 一段時間</p></div>
+            </div>
+            
+            <div class="question"><p><b>7.</b> The boarding gate will close _____ 10 minutes.</p>
+                <label class="option"><input type="radio" name="travel-q6" value="after"> after</label>
+                <label class="option"><input type="radio" name="travel-q6" value="before"> before</label>
+                <label class="option"><input type="radio" name="travel-q6" value="during"> during</label>
+                <label class="option"><input type="radio" name="travel-q6" value="until"> until</label>
+                <div class="answer-block" id="travel-ans6"><p><strong>正確答案：</strong><span class="correct-text">after</span></p><p><strong>文法解析：</strong>after + 時間點</p></div>
+            </div>
+            
+            <div class="question"><p><b>8.</b> Please make sure your passport is _____.</p>
+                <label class="option"><input type="radio" name="travel-q7" value="valid"> valid</label>
+                <label class="option"><input type="radio" name="travel-q7" value="validate"> validate</label>
+                <label class="option"><input type="radio" name="travel-q7" value="validity"> validity</label>
+                <label class="option"><input type="radio" name="travel-q7" value="validating"> validating</label>
+                <div class="answer-block" id="travel-ans7"><p><strong>正確答案：</strong><span class="correct-text">valid</span></p><p><strong>文法解析：</strong>is + 形容詞</p></div>
+            </div>
+            
+            <div class="question"><p><b>9.</b> The bus stop is located _____ the station.</p>
+                <label class="option"><input type="radio" name="travel-q8" value="near"> near</label>
+                <label class="option"><input type="radio" name="travel-q8" value="between"> between</label>
+                <label class="option"><input type="radio" name="travel-q8" value="among"> among</label>
+                <label class="option"><input type="radio" name="travel-q8" value="during"> during</label>
+                <div class="answer-block" id="travel-ans8"><p><strong>正確答案：</strong><span class="correct-text">near</span></p><p><strong>文法解析：</strong>near + 地點</p></div>
+            </div>
+            
+            <div class="question"><p><b>10.</b> The flight was canceled _____ the strike.</p>
+                <label class="option"><input type="radio" name="travel-q9" value="because"> because</label>
+                <label class="option"><input type="radio" name="travel-q9" value="because of"> because of</label>
+                <label class="option"><input type="radio" name="travel-q9" value="although"> although</label>
+                <label class="option"><input type="radio" name="travel-q9" value="however"> however</label>
+                <div class="answer-block" id="travel-ans9"><p><strong>正確答案：</strong><span class="correct-text">because of</span></p><p><strong>文法解析：</strong>because of + 名詞</p></div>
+            </div>
+        </form>
+        <button class="check-button" onclick="showAnswers('travel')">送出旅遊與交通文法答案</button>
+    </div>
+    
+    <div id="section-sales" class="tab-content">
+        <h2>📊 銷售與行銷英文【文法】測驗（10 題）</h2>
+        <form id="quizFormSales">
+            <div class="question"><p><b>1.</b> This product is _____ than the previous one.</p>
+                <label class="option"><input type="radio" name="sales-q0" value="more expensive"> more expensive</label>
+                <label class="option"><input type="radio" name="sales-q0" value="most expensive"> most expensive</label>
+                <label class="option"><input type="radio" name="sales-q0" value="expensive"> expensive</label>
+                <label class="option"><input type="radio" name="sales-q0" value="expensively"> expensively</label>
+                <div class="answer-block" id="sales-ans0"><p><strong>正確答案：</strong><span class="correct-text">more expensive</span></p><p><strong>文法解析：</strong>than 前面用比較級</p></div>
+            </div>
+            
+            <div class="question"><p><b>2.</b> The company plans _____ a new product next month.</p>
+                <label class="option"><input type="radio" name="sales-q1" value="launch"> launch</label>
+                <label class="option"><input type="radio" name="sales-q1" value="to launch"> to launch</label>
+                <label class="option"><input type="radio" name="sales-q1" value="launching"> launching</label>
+                <label class="option"><input type="radio" name="sales-q1" value="launched"> launched</label>
+                <div class="answer-block" id="sales-ans1"><p><strong>正確答案：</strong><span class="correct-text">to launch</span></p><p><strong>文法解析：</strong>plan to + 原形動詞</p></div>
+            </div>
+            
+            <div class="question"><p><b>3.</b> The advertisement was _____ by the marketing team.</p>
+                <label class="option"><input type="radio" name="sales-q2" value="create"> create</label>
+                <label class="option"><input type="radio" name="sales-q2" value="creating"> creating</label>
+                <label class="option"><input type="radio" name="sales-q2" value="created"> created</label>
+                <label class="option"><input type="radio" name="sales-q2" value="creates"> creates</label>
+                <div class="answer-block" id="sales-ans2"><p><strong>正確答案：</strong><span class="correct-text">created</span></p><p><strong>文法解析：</strong>被動語態：be + p.p.</p></div>
+            </div>
+            
+            <div class="question"><p><b>4.</b> Customers are interested _____ the special offer.</p>
+                <label class="option"><input type="radio" name="sales-q3" value="in"> in</label>
+                <label class="option"><input type="radio" name="sales-q3" value="on"> on</label>
+                <label class="option"><input type="radio" name="sales-q3" value="at"> at</label>
+                <label class="option"><input type="radio" name="sales-q3" value="for"> for</label>
+                <div class="answer-block" id="sales-ans3"><p><strong>正確答案：</strong><span class="correct-text">in</span></p><p><strong>文法解析：</strong>be interested in 為固定用法</p></div>
+            </div>
+            
+            <div class="question"><p><b>5.</b> This store offers _____ prices during the sale.</p>
+                <label class="option"><input type="radio" name="sales-q4" value="reduce"> reduce</label>
+                <label class="option"><input type="radio" name="sales-q4" value="reducing"> reducing</label>
+                <label class="option"><input type="radio" name="sales-q4" value="reduced"> reduced</label>
+                <label class="option"><input type="radio" name="sales-q4" value="reduces"> reduces</label>
+                <div class="answer-block" id="sales-ans4"><p><strong>正確答案：</strong><span class="correct-text">reduced</span></p><p><strong>文法解析：</strong>reduced prices 為形容詞用法</p></div>
+            </div>
+            
+            <div class="question"><p><b>6.</b> The campaign _____ last week was very successful.</p>
+                <label class="option"><input type="radio" name="sales-q5" value="launch"> launch</label>
+                <label class="option"><input type="radio" name="sales-q5" value="launched"> launched</label>
+                <label class="option"><input type="radio" name="sales-q5" value="launching"> launching</label>
+                <label class="option"><input type="radio" name="sales-q5" value="launches"> launches</label>
+                <div class="answer-block" id="sales-ans5"><p><strong>正確答案：</strong><span class="correct-text">launched</span></p><p><strong>文法解析：</strong>過去分詞當形容詞</p></div>
+            </div>
+            
+            <div class="question"><p><b>7.</b> The company provides free delivery _____ online orders.</p>
+                <label class="option"><input type="radio" name="sales-q6" value="for"> for</label>
+                <label class="option"><input type="radio" name="sales-q6" value="to"> to</label>
+                <label class="option"><input type="radio" name="sales-q6" value="with"> with</label>
+                <label class="option"><input type="radio" name="sales-q6" value="at"> at</label>
+                <div class="answer-block" id="sales-ans6"><p><strong>正確答案：</strong><span class="correct-text">for</span></p><p><strong>文法解析：</strong>provide A for B</p></div>
+            </div>
+            
+            <div class="question"><p><b>8.</b> This advertisement is designed _____ young customers.</p>
+                <label class="option"><input type="radio" name="sales-q7" value="at"> at</label>
+                <label class="option"><input type="radio" name="sales-q7" value="for"> for</label>
+                <label class="option"><input type="radio" name="sales-q7" value="to"> to</label>
+                <label class="option"><input type="radio" name="sales-q7" value="with"> with</label>
+                <div class="answer-block" id="sales-ans7"><p><strong>正確答案：</strong><span class="correct-text">for</span></p><p><strong>文法解析：</strong>be designed for + 對象</p></div>
+            </div>
+            
+            <div class="question"><p><b>9.</b> Sales have increased _____ 20% this year.</p>
+                <label class="option"><input type="radio" name="sales-q8" value="by"> by</label>
+                <label class="option"><input type="radio" name="sales-q8" value="at"> at</label>
+                <label class="option"><input type="radio" name="sales-q8" value="to"> to</label>
+                <label class="option"><input type="radio" name="sales-q8" value="with"> with</label>
+                <div class="answer-block" id="sales-ans8"><p><strong>正確答案：</strong><span class="correct-text">by</span></p><p><strong>文法解析：</strong>increase by + 數字</p></div>
+            </div>
+            
+            <div class="question"><p><b>10.</b> The product was advertised _____ television.</p>
+                <label class="option"><input type="radio" name="sales-q9" value="on"> on</label>
+                <label class="option"><input type="radio" name="sales-q9" value="in"> in</label>
+                <label class="option"><input type="radio" name="sales-q9" value="at"> at</label>
+                <label class="option"><input type="radio" name="sales-q9" value="by"> by</label>
+                <div class="answer-block" id="sales-ans9"><p><strong>正確答案：</strong><span class="correct-text">on</span></p><p><strong>文法解析：</strong>on television 為固定用法</p></div>
+            </div>
+        </form>
+        <button class="check-button" onclick="showAnswers('sales')">送出銷售與行銷文法答案</button>
+    </div>
+
+</div>
+
+<script>
+// 處理選單 Tab 切換功能
+function openTab(tabName, elmnt) {
+    var i, tabcontent, tablinks;
+    
+    // 隱藏所有 tab 內容
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+    }
+
+    // 移除所有按鈕的 active class
+    tablinks = document.getElementsByClassName("menu-button");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+
+    // 顯示特定的 tab 內容並設定按鈕為 active
+    document.getElementById("section-" + tabName).style.display = "block";
+    document.getElementById("section-" + tabName).classList.add("active");
+    elmnt.classList.add("active");
+
+    // 滾動到容器頂部 (可選)
+    document.querySelector('.container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// 顯示答案的 JavaScript 函數
+function showAnswers(type) {
+    let prefix = type;
+    let numQuestions = 10; 
+
+    for (let i = 0; i < numQuestions; i++) {
+        const answerBlock = document.getElementById(`${prefix}-ans${i}`);
+        if (answerBlock) {
+            // 切換答案的顯示狀態
+            if (answerBlock.style.display === "block") {
+                answerBlock.style.display = "none";
+            } else {
+                answerBlock.style.display = "block"; 
+            }
+        }
+    }
+    
+    // 滾動到該區塊底部
+    const targetElementId = `section-${type}`;
+    const targetElement = document.getElementById(targetElementId);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+}
+
+// 確保頁面加載時，預設顯示第一個 Tab
+document.addEventListener("DOMContentLoaded", function() {
+    // 預設第一個 Tab 已經被設置了 active 類別和 display: block;
+    // 如果您想確保，可以執行一次 openTab 
+    // openTab('work', document.querySelector('.menu-button.active'));
+});
+
+</script>
+</body>
+</html>

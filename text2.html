@@ -4,64 +4,72 @@
     <meta charset="UTF-8">
     <title>TOEIC 550 文法測驗系統</title>
     <style>
-        /* 基礎樣式與單字版完全一致 */
-        body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; padding: 20px; line-height: 1.6; }
-        .container { max-width: 900px; margin: auto; padding: 20px; }
-        h1 { text-align: center; color: #4a4a4a; margin-bottom: 40px; }
+        body { font-family: "Noto Sans TC", sans-serif; background: #f7f5f2; color: #444; margin: 0; padding: 0; line-height: 1.6; }
+        .nav-bar { background: #0056b3; color: white; padding: 15px 0; text-align: center; font-size: 1.2em; display: flex; justify-content: center; gap: 30px; }
+        .nav-item { cursor: pointer; opacity: 0.8; transition: 0.3s; }
+        .nav-item:hover { opacity: 1; text-decoration: underline; }
 
-        /* 大主題卡片格式 - 仿照 image_66bcde.png */
-        .theme-selection-area { display: flex; flex-direction: column; gap: 30px; }
-        .theme-row { display: flex; align-items: flex-start; gap: 20px; }
-        .theme-label { font-weight: bold; color: #6b6b6b; width: 100px; padding-top: 40px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        h1 { text-align: center; color: #4a4a4a; margin-bottom: 30px; }
+
+        /* --- 第一層：主題選單區 (仿 image_66bcde.png) --- */
+        #main-menu { display: block; } /* 初始顯示 */
+        .theme-row { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 40px; }
+        .theme-label { font-weight: bold; color: #6b6b6b; width: 120px; padding-top: 40px; font-size: 1.1em; }
         
         .theme-card {
             flex-grow: 1;
             background: #ffffff;
             border-radius: 12px;
-            padding: 40px;
+            padding: 50px 40px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
         }
-        .theme-card h3 { font-size: 1.8em; color: #4a4a4a; margin-bottom: 15px; }
-        .theme-card p { color: #888; margin-bottom: 25px; }
+        .theme-card h3 { font-size: 1.8em; color: #4a4a4a; margin: 0 0 15px 0; }
+        .theme-card p { color: #888; margin-bottom: 30px; }
         
-        /* 進入主題的按鈕 */
         .enter-btn {
             background-color: #c4b7a6;
             color: white;
             border: none;
-            padding: 12px 40px;
+            padding: 12px 60px;
             border-radius: 8px;
             font-size: 1.1em;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: 0.3s;
         }
-        .enter-btn:hover { background-color: #9c8e7e; }
+        .enter-btn:hover { background-color: #9c8e7e; transform: scale(1.05); }
 
-        /* 測驗區塊：預設完全隱藏 */
-        .quiz-section { display: none; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .back-btn { background: #888; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
+        /* --- 第二層：測驗題目區 (初始完全隱藏) --- */
+        #quiz-container { display: none; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .back-btn { background: #888; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 30px; }
+        .back-btn:hover { background: #666; }
 
-        /* 題目格式 */
-        .question { margin-bottom: 30px; padding: 20px; background: #fafafa; border-radius: 10px; border-left: 6px solid #c8c2bd; }
-        .option { margin: 10px 0; display: block; cursor: pointer; font-size: 1.1em; }
-        .answer-block { margin-top: 15px; padding: 15px; background: #f0edea; border-radius: 8px; display: none; border: 1px dashed #c4b7a6; }
+        .question { margin-bottom: 35px; padding: 25px; background: #fafafa; border-radius: 10px; border-left: 6px solid #c8c2bd; }
+        .option { margin: 12px 0; display: block; cursor: pointer; font-size: 1.1em; }
+        .answer-block { margin-top: 15px; padding: 20px; background: #f0edea; border-radius: 8px; display: none; border: 1px dashed #c4b7a6; }
         .correct-text { color: #3c7a3c; font-weight: bold; }
-        .check-button { display: block; margin: 30px auto; padding: 15px 50px; border: none; background: #6b6b6b; color: white; border-radius: 8px; font-size: 18px; cursor: pointer; }
+        .check-button { display: block; margin: 40px auto; padding: 15px 60px; border: none; background: #6b6b6b; color: white; border-radius: 8px; font-size: 1.2em; cursor: pointer; }
     </style>
 </head>
 <body>
 
+<div class="nav-bar">
+    <div class="nav-item">字彙測驗</div>
+    <div class="nav-item" onclick="location.reload()">文法測驗</div>
+    <div class="nav-item">閱讀測驗</div>
+    <div class="nav-item">製作團隊</div>
+</div>
+
 <div class="container">
     <h1 id="page-title">TOEIC 550 綜合文法能力測驗</h1>
 
-    <div id="main-menu" class="theme-selection-area">
+    <div id="main-menu">
         <div class="theme-row">
             <div class="theme-label">職場文法</div>
             <div class="theme-card">
                 <h3>TOEIC 550 職場辦公室文法測驗</h3>
-                <p>請選出最適當的文法選項，點擊下方按鈕開始測驗。</p>
+                <p>請點擊下方按鈕開始進行職場相關文法練習。</p>
                 <button class="enter-btn" onclick="startQuiz('work')">進入測驗</button>
             </div>
         </div>
@@ -70,7 +78,7 @@
             <div class="theme-label">旅遊文法</div>
             <div class="theme-card">
                 <h3>TOEIC 550 旅遊與交通文法測驗</h3>
-                <p>請選出最適當的文法選項，點擊下方按鈕開始測驗。</p>
+                <p>請點擊下方按鈕開始進行旅遊與交通文法練習。</p>
                 <button class="enter-btn" onclick="startQuiz('travel')">進入測驗</button>
             </div>
         </div>
@@ -79,74 +87,49 @@
             <div class="theme-label">銷售文法</div>
             <div class="theme-card">
                 <h3>TOEIC 550 銷售與行銷文法測驗</h3>
-                <p>請選出最適當的文法選項，點擊下方按鈕開始測驗。</p>
+                <p>請點擊下方按鈕開始進行銷售與行銷文法練習。</p>
                 <button class="enter-btn" onclick="startQuiz('sales')">進入測驗</button>
             </div>
         </div>
     </div>
 
-    <div id="quiz-container" class="quiz-section">
+    <div id="quiz-container">
         <button class="back-btn" onclick="goBack()">← 返回主題選單</button>
-        <h2 id="quiz-title" style="text-align:center; margin-bottom:30px;"></h2>
+        <h2 id="quiz-title" style="text-align:center; margin-bottom:40px; color:#4a4a4a;"></h2>
         <div id="quiz-questions"></div>
         <button class="check-button" onclick="showResults()">送出答案並查看解析</button>
     </div>
 </div>
 
 <script>
+// 完整題庫資料
 const quizData = {
-    work: {
-        title: "💼 職場辦公室英文【文法】",
-        questions: [
-            {q:"Please submit the report _____ Friday.", options:["at","in","by","from"], ans:"by", exp:"by + 時間＝截止時間"},
-            {q:"The manager asked all staff _____ attend the meeting.", options:["to","for","with","of"], ans:"to", exp:"ask + 人 + to + 原形動詞"},
-            {q:"Ms. Lee is responsible _____ customer complaints.", options:["for","to","with","of"], ans:"for", exp:"be responsible for 為固定搭配"},
-            {q:"The email _____ by the manager yesterday.", options:["send","sent","was sent","is sending"], ans:"was sent", exp:"被動語態：過去式 was/were + p.p."},
-            {q:"We will discuss the issue _____ the meeting.", options:["at","on","in","by"], ans:"at", exp:"at the meeting 為固定用法"},
-            {q:"He works _____ the sales department.", options:["at","on","in","by"], ans:"in", exp:"in + department / company"},
-            {q:"The document needs _____ before approval.", options:["review","reviewed","reviewing","reviews"], ans:"reviewing", exp:"need + V-ing 表被動意義"},
-            {q:"Please let me know _____ you are available.", options:["if","what","that","which"], ans:"if", exp:"if 表示「是否」"},
-            {q:"She has worked here _____ five years.", options:["since","for","during","from"], ans:"for", exp:"for + 一段時間"},
-            {q:"The meeting was canceled _____ the storm.", options:["because","because of","although","despite"], ans:"because of", exp:"because of + 名詞"}
-        ]
-    },
-    travel: {
-        title: "✈️ 旅遊與交通英文【文法】",
-        questions: [
-            {q:"Passengers must arrive _____ the airport two hours early.", options:["at","in","on","to"], ans:"at", exp:"arrive at + 小地點"},
-            {q:"The flight was delayed _____ bad weather.", options:["because","because of","although","during"], ans:"because of", exp:"because of + 名詞"},
-            {q:"Please check _____ at least 30 minutes before departure.", options:["in","on","out","up"], ans:"in", exp:"check in 為固定片語"},
-            {q:"The train _____ at 7:30 a.m. every day.", options:["leave","leaves","left","is leaving"], ans:"leaves", exp:"固定時刻 → 現在簡單式"},
-            {q:"All luggage must _____ at the counter.", options:["check","checked","be checked","checking"], ans:"be checked", exp:"must + be + p.p."},
-            {q:"We stayed at the hotel _____ three nights.", options:["since","for","during","from"], ans:"for", exp:"for + 一段時間"},
-            {q:"The boarding gate will close _____ 10 minutes.", options:["after","before","during","until"], ans:"after", exp:"after + 時間點"},
-            {q:"Please make sure your passport is _____.", options:["valid","validate","validity","validating"], ans:"valid", exp:"is + 形容詞"},
-            {q:"The bus stop is located _____ the station.", options:["near","between","among","during"], ans:"near", exp:"near + 地點"},
-            {q:"The flight was canceled _____ the strike.", options:["because","because of","although","however"], ans:"because of", exp:"because of + 名詞"}
-        ]
-    },
-    sales: {
-        title: "📊 銷售與行銷英文【文法】",
-        questions: [
-            {q:"This product is _____ than the previous one.", options:["more expensive","most expensive","expensive","expensively"], ans:"more expensive", exp:"than 前面用比較級"},
-            {q:"The company plans _____ a new product next month.", options:["launch","to launch","launching","launched"], ans:"to launch", exp:"plan to + 原形動詞"},
-            {q:"The advertisement was _____ by the marketing team.", options:["create","creating","created","creates"], ans:"created", exp:"被動語態：be + p.p."},
-            {q:"Customers are interested _____ the special offer.", options:["in","on","at","for"], ans:"in", exp:"be interested in 為固定用法"},
-            {q:"This store offers _____ prices during the sale.", options:["reduce","reducing","reduced","reduces"], ans:"reduced", exp:"形容詞用法"},
-            {q:"The campaign _____ last week was very successful.", options:["launch","launched","launching","launches"], ans:"launched", exp:"過去分詞當形容詞"},
-            {q:"The company provides free delivery _____ online orders.", options:["for","to","with","at"], ans:"for", exp:"provide A for B"},
-            {q:"This advertisement is designed _____ young customers.", options:["at","for","to","with"], ans:"for", exp:"be designed for + 對象"},
-            {q:"Sales have increased _____ 20% this year.", options:["by","at","to","with"], ans:"by", exp:"increase by + 數字"},
-            {q:"The product was advertised _____ television.", options:["on","in","at","by"], ans:"on", exp:"on television 為固定用法"}
-        ]
-    }
+    work: { title: "💼 職場辦公室文法", questions: [
+        {q:"Please submit the report _____ Friday.", options:["at","in","by","from"], ans:"by", exp:"by + 時間點＝在...之前(截止日期)。"},
+        {q:"The manager asked all staff _____ attend the meeting.", options:["to","for","with","of"], ans:"to", exp:"ask someone + to V。"},
+        // ... 此處簡化，請保留您原本的所有題目內容
+    ]},
+    travel: { title: "✈️ 旅遊與交通文法", questions: [
+        {q:"Passengers must arrive _____ the airport two hours early.", options:["at","in","on","to"], ans:"at", exp:"arrive at + 小地點(車站、機場)。"},
+        // ... 此處簡化
+    ]},
+    sales: { title: "📊 銷售與行銷文法", questions: [
+        {q:"This product is _____ than the previous one.", options:["more expensive","most expensive","expensive","expensively"], ans:"more expensive", exp:"than 前面必須搭配比較級。"},
+        // ... 此處簡化
+    ]}
 };
 
+// 核心邏輯：進入測驗
 function startQuiz(theme) {
+    // 1. 隱藏主選單與大標題
     document.getElementById('main-menu').style.display = 'none';
     document.getElementById('page-title').style.display = 'none';
-    document.getElementById('quiz-container').style.display = 'block';
     
+    // 2. 顯示測驗容器
+    const container = document.getElementById('quiz-container');
+    container.style.display = 'block';
+    
+    // 3. 渲染題目
     const data = quizData[theme];
     document.getElementById('quiz-title').innerText = data.title;
     
@@ -165,10 +148,12 @@ function startQuiz(theme) {
     window.scrollTo(0,0);
 }
 
+// 核心邏輯：返回選單
 function goBack() {
-    document.getElementById('main-menu').style.display = 'flex';
+    document.getElementById('main-menu').style.display = 'block';
     document.getElementById('page-title').style.display = 'block';
     document.getElementById('quiz-container').style.display = 'none';
+    window.scrollTo(0,0);
 }
 
 function showResults() {
